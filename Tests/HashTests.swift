@@ -9,7 +9,7 @@
 import XCTest
 import EasyCrypto
 
-class SwiftTests: XCTestCase {
+class HashTests: XCTestCase {
     let message = "EasyCrypto"
     var data: NSData!
     
@@ -65,7 +65,7 @@ class SwiftTests: XCTestCase {
         XCTAssertEqual(sha512.hexDigest,    "20fa40952952d7e9f4b42f8bd8e39b5c77418b98a1dd558747f4f57d46ac07f17fcea9c59c62b51051aa36902a99ea2b4508fb489724da259f0236174721c01d")
     }
     
-    func testDigestStringExtension() {
+    func testHashStringExtension() {
         XCTAssertEqual(md2.digest,      self.message.md2().digest)
         XCTAssertEqual(md4.digest,      self.message.md4().digest)
         XCTAssertEqual(md5.digest,      self.message.md5().digest)
@@ -76,7 +76,7 @@ class SwiftTests: XCTestCase {
         XCTAssertEqual(sha512.digest,   self.message.sha512().digest)
     }
     
-    func testDigestNSStringExtension() {
+    func testHashNSStringExtension() {
         XCTAssertEqual(md2.digest,      (self.message as NSString).md2().digest)
         XCTAssertEqual(md4.digest,      (self.message as NSString).md4().digest)
         XCTAssertEqual(md5.digest,      (self.message as NSString).md5().digest)
@@ -87,7 +87,7 @@ class SwiftTests: XCTestCase {
         XCTAssertEqual(sha512.digest,   (self.message as NSString).sha512().digest)
     }
     
-    func testDigestNSDataExtension() {
+    func testHashNSDataExtension() {
         XCTAssertEqual(md2.digest,      self.data.md2().digest)
         XCTAssertEqual(md4.digest,      self.data.md4().digest)
         XCTAssertEqual(md5.digest,      self.data.md5().digest)
