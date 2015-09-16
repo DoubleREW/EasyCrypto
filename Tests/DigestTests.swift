@@ -13,14 +13,14 @@ class SwiftTests: XCTestCase {
     let message = "EasyCrypto"
     var data: NSData!
     
-    var md2: ECMd2!
-    var md4: ECMd4!
-    var md5: ECMd5!
-    var sha1: ECSha1!
-    var sha224: ECSha224!
-    var sha256: ECSha256!
-    var sha384: ECSha384!
-    var sha512: ECSha512!
+    var md2: ECHashMD2!
+    var md4: ECHashMD4!
+    var md5: ECHashMD5!
+    var sha1: ECHashSHA1!
+    var sha224: ECHashSHA224!
+    var sha256: ECHashSHA256!
+    var sha384: ECHashSHA384!
+    var sha512: ECHashSHA512!
     
     
     override func setUp() {
@@ -28,14 +28,14 @@ class SwiftTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         self.data = self.message.dataUsingEncoding(NSUTF8StringEncoding)
         
-        self.md2 = ECMd2(string: self.message)
-        self.md4 = ECMd4(string: message)
-        self.md5 = ECMd5(string: message)
-        self.sha1 = ECSha1(string: message)
-        self.sha224 = ECSha224(string: message)
-        self.sha256 = ECSha256(string: message)
-        self.sha384 = ECSha384(string: message)
-        self.sha512 = ECSha512(string: message)
+        self.md2 = ECHashMD2(string: self.message)
+        self.md4 = ECHashMD4(string: message)
+        self.md5 = ECHashMD5(string: message)
+        self.sha1 = ECHashSHA1(string: message)
+        self.sha224 = ECHashSHA224(string: message)
+        self.sha256 = ECHashSHA256(string: message)
+        self.sha384 = ECHashSHA384(string: message)
+        self.sha512 = ECHashSHA512(string: message)
     }
     
     override func tearDown() {

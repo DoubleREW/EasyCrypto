@@ -6,98 +6,96 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import "ECDigest.h"
-#import "ECDigestObject.h"
+#import "ECHashExtensions.h"
+#import "ECHash.h"
 
-@implementation ECDigest
-@end
 
 // MARK: Extensions
-@implementation NSString (ECDigest)
+@implementation NSString (ECHash)
 
-- (nonnull ECMd2 *)md2
+- (nonnull ECHashMD2 *)md2
 {
-    return [[ECMd2 alloc] initWithString:self];
+    return [[ECHashMD2 alloc] initWithString:self];
 }
 
-- (nonnull ECMd4 *)md4
+- (nonnull ECHashMD4 *)md4
 {
-    return [[ECMd4 alloc] initWithString:self];
+    return [[ECHashMD4 alloc] initWithString:self];
 }
 
-- (nonnull ECMd5 *)md5
+- (nonnull ECHashMD5 *)md5
 {
-    return [[ECMd5 alloc] initWithString:self];
+    return [[ECHashMD5 alloc] initWithString:self];
 }
 
-- (nonnull ECSha1 *)sha1
+- (nonnull ECHashSHA1 *)sha1
 {
-    return [[ECSha1 alloc] initWithString:self];
+    return [[ECHashSHA1 alloc] initWithString:self];
 }
 
-- (nonnull ECSha224 *)sha224
+- (nonnull ECHashSHA224 *)sha224
 {
-    return [[ECSha224 alloc] initWithString:self];
+    return [[ECHashSHA224 alloc] initWithString:self];
 }
 
-- (nonnull ECSha256 *)sha256
+- (nonnull ECHashSHA256 *)sha256
 {
-    return [[ECSha256 alloc] initWithString:self];
+    return [[ECHashSHA256 alloc] initWithString:self];
 }
 
-- (nonnull ECSha384 *)sha384
+- (nonnull ECHashSHA384 *)sha384
 {
-    return [[ECSha384 alloc] initWithString:self];
+    return [[ECHashSHA384 alloc] initWithString:self];
 }
 
-- (nonnull ECSha512 *)sha512
+- (nonnull ECHashSHA512 *)sha512
 {
-    return [[ECSha512 alloc] initWithString:self];
+    return [[ECHashSHA512 alloc] initWithString:self];
 }
 
 
 @end
 
-@implementation NSData (ECDigest)
+@implementation NSData (ECHash)
 
-- (nonnull ECMd2 *)md2
+- (nonnull ECHashMD2 *)md2
 {
-    return [[ECMd2 alloc] initWithData:self];
+    return [[ECHashMD2 alloc] initWithData:self];
 }
 
-- (nonnull ECMd4 *)md4
+- (nonnull ECHashMD4 *)md4
 {
-    return [[ECMd4 alloc] initWithData:self];
+    return [[ECHashMD4 alloc] initWithData:self];
 }
 
-- (nonnull ECMd5 *)md5
+- (nonnull ECHashMD5 *)md5
 {
-    return [[ECMd5 alloc] initWithData:self];
+    return [[ECHashMD5 alloc] initWithData:self];
 }
 
-- (nonnull ECSha1 *)sha1
+- (nonnull ECHashSHA1 *)sha1
 {
-    return [[ECSha1 alloc] initWithData:self];
+    return [[ECHashSHA1 alloc] initWithData:self];
 }
 
-- (nonnull ECSha224 *)sha224
+- (nonnull ECHashSHA224 *)sha224
 {
-    return [[ECSha224 alloc] initWithData:self];
+    return [[ECHashSHA224 alloc] initWithData:self];
 }
 
-- (nonnull ECSha256 *)sha256
+- (nonnull ECHashSHA256 *)sha256
 {
-    return [[ECSha256 alloc] initWithData:self];
+    return [[ECHashSHA256 alloc] initWithData:self];
 }
 
-- (nonnull ECSha384 *)sha384
+- (nonnull ECHashSHA384 *)sha384
 {
-    return [[ECSha384 alloc] initWithData:self];
+    return [[ECHashSHA384 alloc] initWithData:self];
 }
 
-- (nonnull ECSha512 *)sha512
+- (nonnull ECHashSHA512 *)sha512
 {
-    return [[ECSha512 alloc] initWithData:self];
+    return [[ECHashSHA512 alloc] initWithData:self];
 }
 
 

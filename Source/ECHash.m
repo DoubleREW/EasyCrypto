@@ -6,16 +6,16 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import "ECDigestObject.h"
-#import "ECDigestObject+Private.h"
+#import "ECHash.h"
+#import "ECHash+Private.h"
 
-@interface ECDigestObject ()
+@interface ECHash ()
 
 @property (nonatomic, strong) NSData *inputData;
 
 @end
 
-@implementation ECDigestObject
+@implementation ECHash
 
 - (nonnull instancetype)initWithData:(nonnull NSData *)data
 {
@@ -83,7 +83,7 @@
 
 
 // MARK: Implementations
-@implementation ECMd2
+@implementation ECHashMD2
 
 - (NSUInteger)digestLength
 {
@@ -100,7 +100,7 @@
 
 @end
 
-@implementation ECMd4
+@implementation ECHashMD4
 
 - (NSUInteger)digestLength
 {
@@ -117,7 +117,7 @@
 
 @end
 
-@implementation ECMd5
+@implementation ECHashMD5
 
 - (NSUInteger)digestLength
 {
@@ -134,7 +134,7 @@
 
 @end
 
-@implementation ECSha1
+@implementation ECHashSHA1
 
 - (NSUInteger)digestLength
 {
@@ -151,7 +151,7 @@
 
 @end
 
-@implementation ECSha224
+@implementation ECHashSHA224
 
 - (NSUInteger)digestLength
 {
@@ -168,7 +168,7 @@
 
 @end
 
-@implementation ECSha256
+@implementation ECHashSHA256
 
 - (NSUInteger)digestLength
 {
@@ -185,7 +185,7 @@
 
 @end
 
-@implementation ECSha384
+@implementation ECHashSHA384
 
 - (NSUInteger)digestLength
 {
@@ -202,7 +202,7 @@
 
 @end
 
-@implementation ECSha512
+@implementation ECHashSHA512
 
 - (NSUInteger)digestLength
 {

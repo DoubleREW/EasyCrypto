@@ -8,34 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
-@class ECMd2, ECMd4, ECMd5, ECSha1, ECSha224, ECSha256, ECSha384, ECSha512;
+@class ECHashMD2, ECHashMD4, ECHashMD5, ECHashSHA1, ECHashSHA224, ECHashSHA256, ECHashSHA384, ECHashSHA512;
 
-@interface ECDigest : NSObject
 
-@end
+@interface NSString (ECHash)
 
-@interface NSString (ECDigest)
-
-- (nonnull ECMd2 *)md2;
-- (nonnull ECMd4 *)md4;
-- (nonnull ECMd5 *)md5;
-- (nonnull ECSha1 *)sha1;
-- (nonnull ECSha224 *)sha224;
-- (nonnull ECSha256 *)sha256;
-- (nonnull ECSha384 *)sha384;
-- (nonnull ECSha512 *)sha512;
+- (nonnull ECHashMD2 *)md2;
+- (nonnull ECHashMD4 *)md4;
+- (nonnull ECHashMD5 *)md5;
+- (nonnull ECHashSHA1 *)sha1;
+- (nonnull ECHashSHA224 *)sha224;
+- (nonnull ECHashSHA256 *)sha256;
+- (nonnull ECHashSHA384 *)sha384;
+- (nonnull ECHashSHA512 *)sha512;
 
 @end
 
-@interface NSData (ECDigest)
+@interface NSData (ECHash)
 
-- (nonnull ECMd2 *)md2;
-- (nonnull ECMd4 *)md4;
-- (nonnull ECMd5 *)md5;
-- (nonnull ECSha1 *)sha1;
-- (nonnull ECSha224 *)sha224;
-- (nonnull ECSha256 *)sha256;
-- (nonnull ECSha384 *)sha384;
-- (nonnull ECSha512 *)sha512;
+- (nonnull ECHashMD2 *)md2;
+- (nonnull ECHashMD4 *)md4;
+- (nonnull ECHashMD5 *)md5;
+- (nonnull ECHashSHA1 *)sha1;
+- (nonnull ECHashSHA224 *)sha224;
+- (nonnull ECHashSHA256 *)sha256;
+- (nonnull ECHashSHA384 *)sha384;
+- (nonnull ECHashSHA512 *)sha512;
 
 @end

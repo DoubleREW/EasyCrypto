@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ECDigestObject : NSObject
+@interface ECHash : NSObject
 
 @property (nonatomic, readonly, nonnull) NSData *digest;
 @property (nonatomic, readonly, nonnull) NSString *hexDigest;
@@ -24,26 +24,26 @@
 
 @end
 
-@interface ECMd2 : ECDigestObject
+@interface ECHashMD2 : ECHash
 @end
 
-@interface ECMd4 : ECDigestObject
+@interface ECHashMD4 : ECHash
 @end
 
-@interface ECMd5 : ECDigestObject
+@interface ECHashMD5 : ECHash
 @end
 
-@interface ECSha1 : ECDigestObject
+@interface ECHashSHA1 : ECHash
 @end
 
-@interface ECSha224 : ECDigestObject
+@interface ECHashSHA224 : ECHash
 @end
 
-@interface ECSha256 : ECDigestObject
+@interface ECHashSHA256 : ECHash
 @end
 
-@interface ECSha384 : ECDigestObject
+@interface ECHashSHA384 : ECHash
 @end
 
-@interface ECSha512 : ECDigestObject
+@interface ECHashSHA512 : ECHash
 @end

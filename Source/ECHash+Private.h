@@ -7,10 +7,10 @@
 //
 
 #import <CommonCrypto/CommonDigest.h>
-#import "ECDigestObject.h"
+#import "ECHash.h"
 
 
-@interface ECDigestObject (Private)
+@interface ECHash (Private)
 
 - (NSData *)_calculateDigest:(const void *)data len:(CC_LONG)len;
 - (NSString *)_calculateHexDigest:(NSData *)data;
