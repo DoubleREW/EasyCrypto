@@ -26,3 +26,5 @@ FOUNDATION_EXPORT const unsigned char EasyCryptoVersionString[];
 
 #import <EasyCrypto/ECHash.h>
 #import <EasyCrypto/ECHashExtensions.h>
+
+#import <EasyCrypto/ECCipher.h>
