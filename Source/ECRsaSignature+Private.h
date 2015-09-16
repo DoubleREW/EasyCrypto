@@ -6,11 +6,11 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import "RSASignature.h"
+#import "ECRsaSignature.h"
 
 @class NSData;
 
-@interface RSASignature (Private)
+@interface ECRsaSignature (Private)
 
 - (nonnull instancetype)initWithRawData:(nonnull NSData *)data;
 

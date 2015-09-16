@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>EasyCrypto.xcscheme</key>
+		<key>EasyCrypto OSX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>EasyCrypto iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>710958891BA878C1002031AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>710958BA1BA87D1C002031AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>710958C31BA87D1C002031AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

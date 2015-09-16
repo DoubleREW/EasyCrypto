@@ -6,12 +6,12 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import "RSAKeyPair.h"
+#import "ECRsaKeyPair.h"
 
 
-@implementation RSAKeyPair
+@implementation ECRsaKeyPair
 
-- (nonnull instancetype)initWithPublicKey:(nonnull RSAKey *)publicKey privateKey:(nonnull RSAKey *)privateKey
+- (nonnull instancetype)initWithPublicKey:(nonnull ECRsaKey *)publicKey privateKey:(nonnull ECRsaKey *)privateKey
 {
     self = [super init];
     if (self) {

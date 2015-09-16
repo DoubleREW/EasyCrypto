@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RSASignature : NSObject
+@interface ECRsaSignature : NSObject
 
 @property (nonatomic, nonnull, readonly) NSData *rawData;
 

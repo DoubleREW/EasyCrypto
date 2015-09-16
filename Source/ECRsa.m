@@ -6,15 +6,15 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import "RSA.h"
-#import "RSAKey.h"
-#import "RSAKey+Private.h"
-#import "RSAKeyPair.h"
-#import "RSAKeyPair+Private.h"
+#import "ECRsa.h"
+#import "ECRsaKey.h"
+#import "ECRsaKey+Private.h"
+#import "ECRsaKeyPair.h"
+#import "ECRsaKeyPair+Private.h"
 #import <Security/Security.h>
 
 
-NSString *const RSAErrorDomain = @"RSAErrorDomain";
+NSString *const ECRsaErrorDomain = @"RSAErrorDomain";
 
 typedef NS_ENUM(NSUInteger, RSAKeyLoadOptions) {
     RSAKeyLoadOptionPassphrase = 1,
@@ -22,9 +22,9 @@ typedef NS_ENUM(NSUInteger, RSAKeyLoadOptions) {
     RSAKeyLoadOptionFormat,
 };
 
-@implementation RSA
+@implementation ECRsa
 
-+ (RSAKeyPair *)generateKeyPairWithSize:(NSUInteger)numbits error:(out NSError **)error
++ (ECRsaKeyPair *)generateKeyPairWithSize:(NSUInteger)numbits error:(out NSError **)error
 {
     SecKeyRef publickey = nil;
     SecKeyRef privatekey = nil;
@@ -40,7 +40,7 @@ typedef NS_ENUM(NSUInteger, RSAKeyLoadOptions) {
     OSStatus oserr = SecKeyGeneratePair(parameters, &publickey, &privatekey);
     if (oserr != noErr) {
         if (error) {
-            *error = [NSError errorWithDomain:RSAErrorDomain
+            *error = [NSError errorWithDomain:ECRsaErrorDomain
                                          code:oserr
                                      userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"SecKeyGeneratePair failed (oserr=%d)\n", oserr]}];
         }
@@ -48,14 +48,15 @@ typedef NS_ENUM(NSUInteger, RSAKeyLoadOptions) {
         return nil;
     }
     
-    RSAKeyPair *keyPair = [[RSAKeyPair alloc] initWithPublicKey:[[RSAKey alloc] initWithSecKey:publickey]
-                                                     privateKey:[[RSAKey alloc] initWithSecKey:privatekey]];
+    ECRsaKeyPair *keyPair = [[ECRsaKeyPair alloc] initWithPublicKey:[[ECRsaKey alloc] initWithSecKey:publickey]
+                                                     privateKey:[[ECRsaKey alloc] initWithSecKey:privatekey]];
     
     return keyPair;
 }
 
-+ (RSAKey *)importKey:(NSString *)keyPath passphrase:(NSString *)passphrase error:(out NSError **)outErr
++ (ECRsaKey *)importKey:(NSString *)keyPath passphrase:(NSString *)passphrase error:(out NSError **)outErr
 {
+    // TODO: iOS: http://stackoverflow.com/questions/10579985/how-can-i-get-seckeyref-from-der-pem-file
     CFErrorRef error = NULL;
     
     CFReadStreamRef cfrs = CFReadStreamCreateWithFile(kCFAllocatorDefault, (__bridge CFURLRef)[NSURL fileURLWithPath:keyPath]);
@@ -92,7 +93,7 @@ typedef NS_ENUM(NSUInteger, RSAKeyLoadOptions) {
     
     if (oserr) {
         if (outErr) {
-            *outErr = [NSError errorWithDomain:RSAErrorDomain
+            *outErr = [NSError errorWithDomain:ECRsaErrorDomain
                                           code:oserr
                                       userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"SecItemImport failed (oserr=%d)\n", oserr]}];
         }
@@ -102,7 +103,7 @@ typedef NS_ENUM(NSUInteger, RSAKeyLoadOptions) {
     
     SecKeyRef seckey = (SecKeyRef)CFArrayGetValueAtIndex(temparray, 0);
     
-    return [[RSAKey alloc] initWithSecKey:seckey];
+    return [[ECRsaKey alloc] initWithSecKey:seckey];
 }
 
 @end

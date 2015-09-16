@@ -6,9 +6,9 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import "RSAKey.h"
+#import "ECRsaKey.h"
 
-@interface RSAKey (Private)
+@interface ECRsaKey (Private)
 
 - (nonnull instancetype)initWithSecKey:(nonnull SecKeyRef)key;
 

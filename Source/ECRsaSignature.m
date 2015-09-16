@@ -6,9 +6,9 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import "RSASignature.h"
+#import "ECRsaSignature.h"
 
-@implementation RSASignature
+@implementation ECRsaSignature
 
 - (instancetype)initWithRawData:(nonnull NSData *)data
 {

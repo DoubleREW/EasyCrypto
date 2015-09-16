@@ -6,42 +6,42 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import "RSAKey.h"
-#import "RSASignature.h"
-#import "RSASignature+Private.h"
+#import "ECRsaKey.h"
+#import "ECRsaSignature.h"
+#import "ECRsaSignature+Private.h"
 
-NSString *const RSAKeyErrorDomain = @"RSAKeyErrorDomain";
+NSString *const ECRsaKeyErrorDomain = @"RSAKeyErrorDomain";
 NSInteger RSAKeyVerificationFailedErrorCode = 500;
 
-static CFBooleanRef RSADigestTypeCFConversion(RSADigestType digestType, CFStringRef *digestTypeString, CFNumberRef *digestLen)
+static CFBooleanRef RSADigestTypeCFConversion(ECRsaDigestType digestType, CFStringRef *digestTypeString, CFNumberRef *digestLen)
 {
     switch (digestType) {
-        case RSADigestTypeMD5:
+        case ECRsaDigestTypeMD5:
             *digestTypeString = kSecDigestMD5;
             *digestLen = (__bridge CFNumberRef)@(128);
             break;
-        case RSADigestTypeSHA1:
+        case ECRsaDigestTypeSHA1:
             *digestTypeString = kSecDigestSHA1;
             *digestLen = (__bridge CFNumberRef)@(160);
             break;
-        case RSADigestTypeSHA224:
+        case ECRsaDigestTypeSHA224:
             *digestTypeString = kSecDigestSHA2;
             *digestLen = (__bridge CFNumberRef)@(224);
             break;
-        case RSADigestTypeSHA256:
+        case ECRsaDigestTypeSHA256:
             *digestTypeString = kSecDigestSHA2;
             *digestLen = (__bridge CFNumberRef)@(256);
             break;
-        case RSADigestTypeSHA384:
+        case ECRsaDigestTypeSHA384:
             *digestTypeString = kSecDigestSHA2;
             *digestLen = (__bridge CFNumberRef)@(384);
             break;
-        case RSADigestTypeSHA512:
+        case ECRsaDigestTypeSHA512:
             *digestTypeString = kSecDigestSHA2;
             *digestLen = (__bridge CFNumberRef)@(512);
             break;
             
-        case RSADigestTypeNone:
+        case ECRsaDigestTypeNone:
         default:
             return kCFBooleanFalse;
     }
@@ -50,7 +50,7 @@ static CFBooleanRef RSADigestTypeCFConversion(RSADigestType digestType, CFString
 }
 
 
-@implementation RSAKey
+@implementation ECRsaKey
 {
     SecKeyRef _key;
 }
@@ -65,7 +65,7 @@ static CFBooleanRef RSADigestTypeCFConversion(RSADigestType digestType, CFString
     return self;
 }
 
-- (RSASignature *)sign:(NSData *)data digestType:(RSADigestType)digestTypeRaw error:(out NSError **)outErr
+- (ECRsaSignature *)sign:(NSData *)data digestType:(ECRsaDigestType)digestTypeRaw error:(out NSError **)outErr
 {
     CFErrorRef error = NULL;
     
@@ -116,17 +116,17 @@ static CFBooleanRef RSADigestTypeCFConversion(RSADigestType digestType, CFString
     
     if (!signature) {
         if (outErr) {
-            *outErr = [NSError errorWithDomain:RSAKeyErrorDomain
+            *outErr = [NSError errorWithDomain:ECRsaKeyErrorDomain
                                          code:-1
                                      userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Signature is NULL!\n"]}];
         }
         return nil;
     }
     
-    return [[RSASignature alloc] initWithRawData:(__bridge NSData *)signature];
+    return [[ECRsaSignature alloc] initWithRawData:(__bridge NSData *)signature];
 }
 
-- (BOOL)verify:(NSData *)data signature:(RSASignature *)signature digestType:(RSADigestType)digestTypeRaw error:(out NSError **)outErr
+- (BOOL)verify:(NSData *)data signature:(ECRsaSignature *)signature digestType:(ECRsaDigestType)digestTypeRaw error:(out NSError **)outErr
 {
     CFErrorRef error = NULL;
     
@@ -177,7 +177,7 @@ static CFBooleanRef RSADigestTypeCFConversion(RSADigestType digestType, CFString
     
     if (verified == kCFBooleanFalse) {
         if (outErr) {
-            *outErr = [NSError errorWithDomain:RSAKeyErrorDomain
+            *outErr = [NSError errorWithDomain:ECRsaKeyErrorDomain
                                           code:RSAKeyVerificationFailedErrorCode
                                       userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Data can't be verified!\n"]}];
         }
@@ -190,7 +190,7 @@ static CFBooleanRef RSADigestTypeCFConversion(RSADigestType digestType, CFString
     }
 }
 
-- (nullable NSData *)exportKey:(RSAExportFormat)format error:(out NSError * _Nullable * _Nullable)outErr
+- (nullable NSData *)exportKey:(ECRsaExportFormat)format error:(out NSError * _Nullable * _Nullable)outErr
 {
     SecItemImportExportKeyParameters params;
     
@@ -232,7 +232,7 @@ static CFBooleanRef RSADigestTypeCFConversion(RSADigestType digestType, CFString
                                      (CFDataRef *)&keydata);
     if (oserr) {
         if (outErr) {
-            *outErr = [NSError errorWithDomain:RSAKeyErrorDomain
+            *outErr = [NSError errorWithDomain:ECRsaKeyErrorDomain
                                           code:oserr
                                       userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"SecItemExport failed (oserr=%d)\n", oserr]}];
         }

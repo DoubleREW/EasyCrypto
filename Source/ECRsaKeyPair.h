@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class RSAKey;
+@class ECRsaKey;
 
-@interface RSAKeyPair : NSObject
+@interface ECRsaKeyPair : NSObject
 
-@property (nonatomic, readonly, nonnull) RSAKey *publicKey;
-@property (nonatomic, readonly, nonnull) RSAKey *privateKey;
+@property (nonatomic, readonly, nonnull) ECRsaKey *publicKey;
+@property (nonatomic, readonly, nonnull) ECRsaKey *privateKey;
 
 @end

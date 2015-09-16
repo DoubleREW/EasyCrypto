@@ -9,7 +9,32 @@
 /* Begin PBXBuildFile section */
 		710958841BA878C1002031AA /* EasyCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958831BA878C1002031AA /* EasyCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7109588B1BA878C1002031AA /* EasyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710958801BA878C1002031AA /* EasyCrypto.framework */; settings = {ASSET_TAGS = (); }; };
-		710958901BA878C1002031AA /* EasyCryptoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7109588F1BA878C1002031AA /* EasyCryptoTests.m */; };
+		7109589D1BA87C01002031AA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7109589B1BA87C01002031AA /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		710958AB1BA87C5B002031AA /* ECRsa.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958A01BA87C5B002031AA /* ECRsa.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		710958AC1BA87C5B002031AA /* ECRsa.m in Sources */ = {isa = PBXBuildFile; fileRef = 710958A11BA87C5B002031AA /* ECRsa.m */; settings = {ASSET_TAGS = (); }; };
+		710958AD1BA87C5B002031AA /* ECRsaKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958A21BA87C5B002031AA /* ECRsaKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		710958AE1BA87C5B002031AA /* ECRsaKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 710958A31BA87C5B002031AA /* ECRsaKey.m */; settings = {ASSET_TAGS = (); }; };
+		710958AF1BA87C5B002031AA /* ECRsaKey+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958A41BA87C5B002031AA /* ECRsaKey+Private.h */; settings = {ASSET_TAGS = (); }; };
+		710958B01BA87C5B002031AA /* ECRsaKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958A51BA87C5B002031AA /* ECRsaKeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		710958B11BA87C5B002031AA /* ECRsaKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 710958A61BA87C5B002031AA /* ECRsaKeyPair.m */; settings = {ASSET_TAGS = (); }; };
+		710958B21BA87C5B002031AA /* ECRsaKeyPair+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958A71BA87C5B002031AA /* ECRsaKeyPair+Private.h */; settings = {ASSET_TAGS = (); }; };
+		710958B31BA87C5B002031AA /* ECRsaSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958A81BA87C5B002031AA /* ECRsaSignature.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		710958B41BA87C5B002031AA /* ECRsaSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 710958A91BA87C5B002031AA /* ECRsaSignature.m */; settings = {ASSET_TAGS = (); }; };
+		710958B51BA87C5B002031AA /* ECRsaSignature+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958AA1BA87C5B002031AA /* ECRsaSignature+Private.h */; settings = {ASSET_TAGS = (); }; };
+		710958C51BA87D1C002031AA /* EasyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710958BB1BA87D1C002031AA /* EasyCrypto.framework */; settings = {ASSET_TAGS = (); }; };
+		710958DE1BA87FDA002031AA /* EasyCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958831BA878C1002031AA /* EasyCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7192EB6C1BA98B100084CE5B /* ECDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB6A1BA98B100084CE5B /* ECDigest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7192EB6D1BA98B100084CE5B /* ECDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB6B1BA98B100084CE5B /* ECDigest.m */; settings = {ASSET_TAGS = (); }; };
+		7192EB6E1BA98B2F0084CE5B /* ECDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB6A1BA98B100084CE5B /* ECDigest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7192EB6F1BA98B2F0084CE5B /* ECDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB6B1BA98B100084CE5B /* ECDigest.m */; settings = {ASSET_TAGS = (); }; };
+		7192EB721BA98B8A0084CE5B /* ECDigestObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB701BA98B8A0084CE5B /* ECDigestObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7192EB731BA98B8A0084CE5B /* ECDigestObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB701BA98B8A0084CE5B /* ECDigestObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7192EB741BA98B8A0084CE5B /* ECDigestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB711BA98B8A0084CE5B /* ECDigestObject.m */; settings = {ASSET_TAGS = (); }; };
+		7192EB751BA98B8A0084CE5B /* ECDigestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB711BA98B8A0084CE5B /* ECDigestObject.m */; settings = {ASSET_TAGS = (); }; };
+		7192EB7F1BA997030084CE5B /* ECDigestObject+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB7C1BA98BCE0084CE5B /* ECDigestObject+Private.h */; settings = {ASSET_TAGS = (); }; };
+		7192EB801BA997050084CE5B /* ECDigestObject+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB7C1BA98BCE0084CE5B /* ECDigestObject+Private.h */; settings = {ASSET_TAGS = (); }; };
+		7192EB851BA999DF0084CE5B /* SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB841BA999DF0084CE5B /* SwiftTests.swift */; settings = {ASSET_TAGS = (); }; };
+		7192EB861BA9A3E40084CE5B /* SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB841BA999DF0084CE5B /* SwiftTests.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,15 +45,41 @@
 			remoteGlobalIDString = 7109587F1BA878C1002031AA;
 			remoteInfo = EasyCrypto;
 		};
+		710958C61BA87D1C002031AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 710958771BA878C1002031AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 710958BA1BA87D1C002031AA;
+			remoteInfo = "EasyCrypto iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		710958801BA878C1002031AA /* EasyCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		710958831BA878C1002031AA /* EasyCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyCrypto.h; sourceTree = "<group>"; };
 		710958851BA878C1002031AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7109588A1BA878C1002031AA /* EasyCryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyCryptoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7109588F1BA878C1002031AA /* EasyCryptoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyCryptoTests.m; sourceTree = "<group>"; };
-		710958911BA878C1002031AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7109588A1BA878C1002031AA /* EasyCrypto OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyCrypto OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7109589B1BA87C01002031AA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
+		710958A01BA87C5B002031AA /* ECRsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECRsa.h; path = Source/ECRsa.h; sourceTree = SOURCE_ROOT; };
+		710958A11BA87C5B002031AA /* ECRsa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECRsa.m; path = Source/ECRsa.m; sourceTree = SOURCE_ROOT; };
+		710958A21BA87C5B002031AA /* ECRsaKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECRsaKey.h; path = Source/ECRsaKey.h; sourceTree = SOURCE_ROOT; };
+		710958A31BA87C5B002031AA /* ECRsaKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECRsaKey.m; path = Source/ECRsaKey.m; sourceTree = SOURCE_ROOT; };
+		710958A41BA87C5B002031AA /* ECRsaKey+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ECRsaKey+Private.h"; path = "Source/ECRsaKey+Private.h"; sourceTree = SOURCE_ROOT; };
+		710958A51BA87C5B002031AA /* ECRsaKeyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECRsaKeyPair.h; path = Source/ECRsaKeyPair.h; sourceTree = SOURCE_ROOT; };
+		710958A61BA87C5B002031AA /* ECRsaKeyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECRsaKeyPair.m; path = Source/ECRsaKeyPair.m; sourceTree = SOURCE_ROOT; };
+		710958A71BA87C5B002031AA /* ECRsaKeyPair+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ECRsaKeyPair+Private.h"; path = "Source/ECRsaKeyPair+Private.h"; sourceTree = SOURCE_ROOT; };
+		710958A81BA87C5B002031AA /* ECRsaSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECRsaSignature.h; path = Source/ECRsaSignature.h; sourceTree = SOURCE_ROOT; };
+		710958A91BA87C5B002031AA /* ECRsaSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECRsaSignature.m; path = Source/ECRsaSignature.m; sourceTree = SOURCE_ROOT; };
+		710958AA1BA87C5B002031AA /* ECRsaSignature+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ECRsaSignature+Private.h"; path = "Source/ECRsaSignature+Private.h"; sourceTree = SOURCE_ROOT; };
+		710958BB1BA87D1C002031AA /* EasyCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		710958C41BA87D1C002031AA /* EasyCrypto iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EasyCrypto iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7192EB6A1BA98B100084CE5B /* ECDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECDigest.h; path = Source/ECDigest.h; sourceTree = SOURCE_ROOT; };
+		7192EB6B1BA98B100084CE5B /* ECDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECDigest.m; path = Source/ECDigest.m; sourceTree = SOURCE_ROOT; };
+		7192EB701BA98B8A0084CE5B /* ECDigestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECDigestObject.h; path = Source/ECDigestObject.h; sourceTree = SOURCE_ROOT; };
+		7192EB711BA98B8A0084CE5B /* ECDigestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECDigestObject.m; path = Source/ECDigestObject.m; sourceTree = SOURCE_ROOT; };
+		7192EB7C1BA98BCE0084CE5B /* ECDigestObject+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ECDigestObject+Private.h"; path = "Source/ECDigestObject+Private.h"; sourceTree = SOURCE_ROOT; };
+		7192EB831BA999DF0084CE5B /* EasyCrypto OSX Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyCrypto OSX Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		7192EB841BA999DF0084CE5B /* SwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,14 +98,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		710958B71BA87D1C002031AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710958C11BA87D1C002031AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				710958C51BA87D1C002031AA /* EasyCrypto.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		710958761BA878C1002031AA = {
 			isa = PBXGroup;
 			children = (
-				710958821BA878C1002031AA /* EasyCrypto */,
-				7109588E1BA878C1002031AA /* EasyCryptoTests */,
+				710958821BA878C1002031AA /* Source */,
+				7109588E1BA878C1002031AA /* Tests */,
 				710958811BA878C1002031AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,27 +129,78 @@
 			isa = PBXGroup;
 			children = (
 				710958801BA878C1002031AA /* EasyCrypto.framework */,
-				7109588A1BA878C1002031AA /* EasyCryptoTests.xctest */,
+				7109588A1BA878C1002031AA /* EasyCrypto OSX Tests.xctest */,
+				710958BB1BA87D1C002031AA /* EasyCrypto.framework */,
+				710958C41BA87D1C002031AA /* EasyCrypto iOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		710958821BA878C1002031AA /* EasyCrypto */ = {
+		710958821BA878C1002031AA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7192EB681BA98AE00084CE5B /* RSA */,
+				7192EB691BA98AF20084CE5B /* Digest */,
+				7109589F1BA87C3C002031AA /* Supporting Files */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		7109588E1BA878C1002031AA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7192EB841BA999DF0084CE5B /* SwiftTests.swift */,
+				7109589E1BA87C1E002031AA /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		7109589E1BA87C1E002031AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7192EB831BA999DF0084CE5B /* EasyCrypto OSX Tests-Bridging-Header.h */,
+				7109589B1BA87C01002031AA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7109589F1BA87C3C002031AA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				710958831BA878C1002031AA /* EasyCrypto.h */,
 				710958851BA878C1002031AA /* Info.plist */,
 			);
-			path = EasyCrypto;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7109588E1BA878C1002031AA /* EasyCryptoTests */ = {
+		7192EB681BA98AE00084CE5B /* RSA */ = {
 			isa = PBXGroup;
 			children = (
-				7109588F1BA878C1002031AA /* EasyCryptoTests.m */,
-				710958911BA878C1002031AA /* Info.plist */,
+				710958A01BA87C5B002031AA /* ECRsa.h */,
+				710958A11BA87C5B002031AA /* ECRsa.m */,
+				710958A21BA87C5B002031AA /* ECRsaKey.h */,
+				710958A31BA87C5B002031AA /* ECRsaKey.m */,
+				710958A41BA87C5B002031AA /* ECRsaKey+Private.h */,
+				710958A51BA87C5B002031AA /* ECRsaKeyPair.h */,
+				710958A61BA87C5B002031AA /* ECRsaKeyPair.m */,
+				710958A71BA87C5B002031AA /* ECRsaKeyPair+Private.h */,
+				710958A81BA87C5B002031AA /* ECRsaSignature.h */,
+				710958A91BA87C5B002031AA /* ECRsaSignature.m */,
+				710958AA1BA87C5B002031AA /* ECRsaSignature+Private.h */,
 			);
-			path = EasyCryptoTests;
+			name = RSA;
+			sourceTree = "<group>";
+		};
+		7192EB691BA98AF20084CE5B /* Digest */ = {
+			isa = PBXGroup;
+			children = (
+				7192EB701BA98B8A0084CE5B /* ECDigestObject.h */,
+				7192EB711BA98B8A0084CE5B /* ECDigestObject.m */,
+				7192EB7C1BA98BCE0084CE5B /* ECDigestObject+Private.h */,
+				7192EB6A1BA98B100084CE5B /* ECDigest.h */,
+				7192EB6B1BA98B100084CE5B /* ECDigest.m */,
+			);
+			name = Digest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,16 +210,37 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7192EB6C1BA98B100084CE5B /* ECDigest.h in Headers */,
+				710958B01BA87C5B002031AA /* ECRsaKeyPair.h in Headers */,
 				710958841BA878C1002031AA /* EasyCrypto.h in Headers */,
+				7192EB721BA98B8A0084CE5B /* ECDigestObject.h in Headers */,
+				710958B51BA87C5B002031AA /* ECRsaSignature+Private.h in Headers */,
+				710958AB1BA87C5B002031AA /* ECRsa.h in Headers */,
+				710958B21BA87C5B002031AA /* ECRsaKeyPair+Private.h in Headers */,
+				710958B31BA87C5B002031AA /* ECRsaSignature.h in Headers */,
+				710958AD1BA87C5B002031AA /* ECRsaKey.h in Headers */,
+				710958AF1BA87C5B002031AA /* ECRsaKey+Private.h in Headers */,
+				7192EB7F1BA997030084CE5B /* ECDigestObject+Private.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710958B81BA87D1C002031AA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7192EB6E1BA98B2F0084CE5B /* ECDigest.h in Headers */,
+				710958DE1BA87FDA002031AA /* EasyCrypto.h in Headers */,
+				7192EB731BA98B8A0084CE5B /* ECDigestObject.h in Headers */,
+				7192EB801BA997050084CE5B /* ECDigestObject+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7109587F1BA878C1002031AA /* EasyCrypto */ = {
+		7109587F1BA878C1002031AA /* EasyCrypto OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 710958941BA878C1002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto" */;
+			buildConfigurationList = 710958941BA878C1002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto OSX" */;
 			buildPhases = (
 				7109587B1BA878C1002031AA /* Sources */,
 				7109587C1BA878C1002031AA /* Frameworks */,
@@ -113,14 +251,14 @@
 			);
 			dependencies = (
 			);
-			name = EasyCrypto;
+			name = "EasyCrypto OSX";
 			productName = EasyCrypto;
 			productReference = 710958801BA878C1002031AA /* EasyCrypto.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		710958891BA878C1002031AA /* EasyCryptoTests */ = {
+		710958891BA878C1002031AA /* EasyCrypto OSX Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 710958971BA878C1002031AA /* Build configuration list for PBXNativeTarget "EasyCryptoTests" */;
+			buildConfigurationList = 710958971BA878C1002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto OSX Tests" */;
 			buildPhases = (
 				710958861BA878C1002031AA /* Sources */,
 				710958871BA878C1002031AA /* Frameworks */,
@@ -131,9 +269,45 @@
 			dependencies = (
 				7109588D1BA878C1002031AA /* PBXTargetDependency */,
 			);
-			name = EasyCryptoTests;
+			name = "EasyCrypto OSX Tests";
 			productName = EasyCryptoTests;
-			productReference = 7109588A1BA878C1002031AA /* EasyCryptoTests.xctest */;
+			productReference = 7109588A1BA878C1002031AA /* EasyCrypto OSX Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		710958BA1BA87D1C002031AA /* EasyCrypto iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 710958CC1BA87D1C002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto iOS" */;
+			buildPhases = (
+				710958B61BA87D1C002031AA /* Sources */,
+				710958B71BA87D1C002031AA /* Frameworks */,
+				710958B81BA87D1C002031AA /* Headers */,
+				710958B91BA87D1C002031AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EasyCrypto iOS";
+			productName = "EasyCrypto iOS";
+			productReference = 710958BB1BA87D1C002031AA /* EasyCrypto.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		710958C31BA87D1C002031AA /* EasyCrypto iOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 710958CF1BA87D1C002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto iOS Tests" */;
+			buildPhases = (
+				710958C01BA87D1C002031AA /* Sources */,
+				710958C11BA87D1C002031AA /* Frameworks */,
+				710958C21BA87D1C002031AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				710958C71BA87D1C002031AA /* PBXTargetDependency */,
+			);
+			name = "EasyCrypto iOS Tests";
+			productName = "EasyCrypto iOSTests";
+			productReference = 710958C41BA87D1C002031AA /* EasyCrypto iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -142,6 +316,7 @@
 		710958771BA878C1002031AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Fausto Ristagno";
 				TargetAttributes = {
@@ -149,6 +324,12 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					710958891BA878C1002031AA = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					710958BA1BA87D1C002031AA = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					710958C31BA87D1C002031AA = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
@@ -165,8 +346,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7109587F1BA878C1002031AA /* EasyCrypto */,
-				710958891BA878C1002031AA /* EasyCryptoTests */,
+				7109587F1BA878C1002031AA /* EasyCrypto OSX */,
+				710958BA1BA87D1C002031AA /* EasyCrypto iOS */,
+				710958891BA878C1002031AA /* EasyCrypto OSX Tests */,
+				710958C31BA87D1C002031AA /* EasyCrypto iOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -183,6 +366,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7109589D1BA87C01002031AA /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710958B91BA87D1C002031AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710958C21BA87D1C002031AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +391,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7192EB741BA98B8A0084CE5B /* ECDigestObject.m in Sources */,
+				710958AE1BA87C5B002031AA /* ECRsaKey.m in Sources */,
+				710958B41BA87C5B002031AA /* ECRsaSignature.m in Sources */,
+				710958B11BA87C5B002031AA /* ECRsaKeyPair.m in Sources */,
+				710958AC1BA87C5B002031AA /* ECRsa.m in Sources */,
+				7192EB6D1BA98B100084CE5B /* ECDigest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +404,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				710958901BA878C1002031AA /* EasyCryptoTests.m in Sources */,
+				7192EB851BA999DF0084CE5B /* SwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710958B61BA87D1C002031AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7192EB751BA98B8A0084CE5B /* ECDigestObject.m in Sources */,
+				7192EB6F1BA98B2F0084CE5B /* ECDigest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		710958C01BA87D1C002031AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7192EB861BA9A3E40084CE5B /* SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,8 +430,13 @@
 /* Begin PBXTargetDependency section */
 		7109588D1BA878C1002031AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7109587F1BA878C1002031AA /* EasyCrypto */;
+			target = 7109587F1BA878C1002031AA /* EasyCrypto OSX */;
 			targetProxy = 7109588C1BA878C1002031AA /* PBXContainerItemProxy */;
+		};
+		710958C71BA87D1C002031AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 710958BA1BA87D1C002031AA /* EasyCrypto iOS */;
+			targetProxy = 710958C61BA87D1C002031AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -307,11 +533,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = EasyCrypto/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.doublerew.EasyCrypto;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EasyCrypto;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -325,11 +551,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = EasyCrypto/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.doublerew.EasyCrypto;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EasyCrypto;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -337,22 +563,95 @@
 		710958981BA878C1002031AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = EasyCryptoTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.doublerew.EasyCryptoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/EasyCrypto OSX Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		710958991BA878C1002031AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = EasyCryptoTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.doublerew.EasyCryptoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/EasyCrypto OSX Tests-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		710958CD1BA87D1C002031AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.doublerew.EasyCrypto;
+				PRODUCT_NAME = EasyCrypto;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		710958CE1BA87D1C002031AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.doublerew.EasyCrypto;
+				PRODUCT_NAME = EasyCrypto;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		710958D01BA87D1C002031AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.doublerew.EasyCrypto-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		710958D11BA87D1C002031AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.doublerew.EasyCrypto-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -368,21 +667,41 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		710958941BA878C1002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto" */ = {
+		710958941BA878C1002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				710958951BA878C1002031AA /* Debug */,
 				710958961BA878C1002031AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		710958971BA878C1002031AA /* Build configuration list for PBXNativeTarget "EasyCryptoTests" */ = {
+		710958971BA878C1002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto OSX Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				710958981BA878C1002031AA /* Debug */,
 				710958991BA878C1002031AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		710958CC1BA87D1C002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				710958CD1BA87D1C002031AA /* Debug */,
+				710958CE1BA87D1C002031AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		710958CF1BA87D1C002031AA /* Build configuration list for PBXNativeTarget "EasyCrypto iOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				710958D01BA87D1C002031AA /* Debug */,
+				710958D11BA87D1C002031AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
