@@ -19,7 +19,8 @@
 - (nonnull instancetype)initWithString:(nonnull NSString *)str;
 
 - (void)updateWithData:(nonnull NSData *)data;
-- (void)updateWithString:(nonnull NSData *)data;
+- (void)updateWithString:(nonnull NSString *)str;
+- (void)update:(nonnull NSString *)str; // Shortcut for updateWithString:
 
 @end
 

@@ -53,6 +53,11 @@
     [self updateWithData:data];
 }
 
+- (void)update:(nonnull NSString *)str
+{
+    [self updateWithString:str];
+}
+
 - (NSData *)_calculateDigest:(const void *)data len:(CC_LONG)len
 {
     [NSException raise:NSInternalInconsistencyException
