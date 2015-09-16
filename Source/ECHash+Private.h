@@ -6,7 +6,7 @@
 //  Copyright © 2015 Fausto Ristagno. All rights reserved.
 //
 
-#import <CommonCrypto/CommonCrypto.h>
+#import <CommonCrypto/CommonDigest.h>
 #import "ECDigestObject.h"
 
 
