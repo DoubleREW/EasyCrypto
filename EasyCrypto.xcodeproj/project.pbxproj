@@ -28,6 +28,15 @@
 		71292D571BA9F73300512EAE /* ECCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 71292D551BA9F73300512EAE /* ECCipher.m */; settings = {ASSET_TAGS = (); }; };
 		71292D591BA9F75A00512EAE /* ECCipher+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 71292D581BA9F75A00512EAE /* ECCipher+Private.h */; settings = {ASSET_TAGS = (); }; };
 		71292D5C1BAA0D6200512EAE /* CipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71292D5B1BAA0D6200512EAE /* CipherTests.swift */; settings = {ASSET_TAGS = (); }; };
+		7147D8121BAAE4330083EA78 /* ECCipher.h in Headers */ = {isa = PBXBuildFile; fileRef = 71292D541BA9F73300512EAE /* ECCipher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7147D8131BAAE4330083EA78 /* ECCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 71292D551BA9F73300512EAE /* ECCipher.m */; settings = {ASSET_TAGS = (); }; };
+		7147D8141BAAE4330083EA78 /* ECCipher+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 71292D581BA9F75A00512EAE /* ECCipher+Private.h */; settings = {ASSET_TAGS = (); }; };
+		7147D81B1BAB35C00083EA78 /* ECCipherData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7147D8191BAB35C00083EA78 /* ECCipherData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7147D81C1BAB35C00083EA78 /* ECCipherData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7147D8191BAB35C00083EA78 /* ECCipherData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7147D81D1BAB35C00083EA78 /* ECCipherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7147D81A1BAB35C00083EA78 /* ECCipherData.m */; settings = {ASSET_TAGS = (); }; };
+		7147D81E1BAB35C00083EA78 /* ECCipherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7147D81A1BAB35C00083EA78 /* ECCipherData.m */; settings = {ASSET_TAGS = (); }; };
+		7147D8201BAB36070083EA78 /* ECCipherData+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7147D81F1BAB36070083EA78 /* ECCipherData+Private.h */; settings = {ASSET_TAGS = (); }; };
+		7147D8211BAB36070083EA78 /* ECCipherData+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7147D81F1BAB36070083EA78 /* ECCipherData+Private.h */; settings = {ASSET_TAGS = (); }; };
 		7192EB6C1BA98B100084CE5B /* ECHashExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB6A1BA98B100084CE5B /* ECHashExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7192EB6D1BA98B100084CE5B /* ECHashExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB6B1BA98B100084CE5B /* ECHashExtensions.m */; settings = {ASSET_TAGS = (); }; };
 		7192EB6E1BA98B2F0084CE5B /* ECHashExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB6A1BA98B100084CE5B /* ECHashExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,6 +92,9 @@
 		71292D551BA9F73300512EAE /* ECCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCipher.m; sourceTree = "<group>"; };
 		71292D581BA9F75A00512EAE /* ECCipher+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ECCipher+Private.h"; sourceTree = "<group>"; };
 		71292D5B1BAA0D6200512EAE /* CipherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CipherTests.swift; sourceTree = "<group>"; };
+		7147D8191BAB35C00083EA78 /* ECCipherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECCipherData.h; sourceTree = "<group>"; };
+		7147D81A1BAB35C00083EA78 /* ECCipherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCipherData.m; sourceTree = "<group>"; };
+		7147D81F1BAB36070083EA78 /* ECCipherData+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ECCipherData+Private.h"; sourceTree = "<group>"; };
 		7192EB6A1BA98B100084CE5B /* ECHashExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECHashExtensions.h; path = Source/ECHashExtensions.h; sourceTree = SOURCE_ROOT; };
 		7192EB6B1BA98B100084CE5B /* ECHashExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECHashExtensions.m; path = Source/ECHashExtensions.m; sourceTree = SOURCE_ROOT; };
 		7192EB701BA98B8A0084CE5B /* ECHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECHash.h; path = Source/ECHash.h; sourceTree = SOURCE_ROOT; };
@@ -191,6 +203,9 @@
 				71292D541BA9F73300512EAE /* ECCipher.h */,
 				71292D551BA9F73300512EAE /* ECCipher.m */,
 				71292D581BA9F75A00512EAE /* ECCipher+Private.h */,
+				7147D8191BAB35C00083EA78 /* ECCipherData.h */,
+				7147D81A1BAB35C00083EA78 /* ECCipherData.m */,
+				7147D81F1BAB36070083EA78 /* ECCipherData+Private.h */,
 			);
 			name = Cipher;
 			sourceTree = "<group>";
@@ -248,7 +263,9 @@
 				710958B51BA87C5B002031AA /* ECRsaSignature+Private.h in Headers */,
 				710958AB1BA87C5B002031AA /* ECRsa.h in Headers */,
 				710958B21BA87C5B002031AA /* ECRsaKeyPair+Private.h in Headers */,
+				7147D8201BAB36070083EA78 /* ECCipherData+Private.h in Headers */,
 				71292D561BA9F73300512EAE /* ECCipher.h in Headers */,
+				7147D81B1BAB35C00083EA78 /* ECCipherData.h in Headers */,
 				71292D591BA9F75A00512EAE /* ECCipher+Private.h in Headers */,
 				710958B31BA87C5B002031AA /* ECRsaSignature.h in Headers */,
 				710958AD1BA87C5B002031AA /* ECRsaKey.h in Headers */,
@@ -261,9 +278,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7147D8121BAAE4330083EA78 /* ECCipher.h in Headers */,
+				7147D8141BAAE4330083EA78 /* ECCipher+Private.h in Headers */,
+				7147D81C1BAB35C00083EA78 /* ECCipherData.h in Headers */,
 				7192EB6E1BA98B2F0084CE5B /* ECHashExtensions.h in Headers */,
 				710958DE1BA87FDA002031AA /* EasyCrypto.h in Headers */,
 				7192EB731BA98B8A0084CE5B /* ECHash.h in Headers */,
+				7147D8211BAB36070083EA78 /* ECCipherData+Private.h in Headers */,
 				7192EB801BA997050084CE5B /* ECHash+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +453,7 @@
 				710958B11BA87C5B002031AA /* ECRsaKeyPair.m in Sources */,
 				710958AC1BA87C5B002031AA /* ECRsa.m in Sources */,
 				7192EB6D1BA98B100084CE5B /* ECHashExtensions.m in Sources */,
+				7147D81D1BAB35C00083EA78 /* ECCipherData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,8 +470,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7147D8131BAAE4330083EA78 /* ECCipher.m in Sources */,
 				7192EB751BA98B8A0084CE5B /* ECHash.m in Sources */,
 				7192EB6F1BA98B2F0084CE5B /* ECHashExtensions.m in Sources */,
+				7147D81E1BAB35C00083EA78 /* ECCipherData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

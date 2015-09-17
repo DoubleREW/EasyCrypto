@@ -27,9 +27,10 @@ class CipherTests: XCTestCase {
         let m = "prova prova"
         let iv = "0123456789ABCDEF".dataUsingEncoding(NSUTF8StringEncoding)
         let c = ECCipherAES(stringKey: "ciao", option: .PKCS7Padding, keySize: .SizeAES256, iv: iv)
-        let e = c.encrypt(m)
+        let d = ECCipherAES(stringKey: "ciao", option: .PKCS7Padding, keySize: .SizeAES256, iv: iv)
+        let e = try! c.encrypt(m)
         
-        XCTAssertEqual(c.decrypt(e), m.dataUsingEncoding(NSUTF8StringEncoding))
+        XCTAssertEqual(try! d.decrypt(e).rawData, m.dataUsingEncoding(NSUTF8StringEncoding))
     }
 
     func testPerformanceExample() {

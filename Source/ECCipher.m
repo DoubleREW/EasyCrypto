@@ -8,6 +8,41 @@
 
 #import "ECCipher.h"
 #import "ECCipher+Private.h"
+#import "ECCipherData.h"
+#import "ECCipherData+Private.h"
+
+
+NSString *const ECCipherError = @"ECCipherError";
+NSInteger ECCipherEncryptionError = 701;
+NSInteger ECCipherDecryptionError = 702;
+
+
+static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
+{
+    switch (status) {
+        case kCCSuccess:
+            return @"Operation completed normally.";
+        case kCCParamError:
+            return @"Illegal parameter value.";
+        case kCCBufferTooSmall:
+            return @"Insufficent buffer provided for specified operation.";
+        case kCCMemoryFailure:
+            return @"Memory allocation failure.";
+        case kCCAlignmentError:
+            return @"Input size was not aligned properly.";
+        case kCCDecodeError:
+            return @"Input data did not decode or decrypt properly.";
+        case kCCUnimplemented:
+            return @"Function not implemented for the current algorithm.";
+        case kCCOverflow:
+            return @"Overflow";
+        case kCCRNGFailure:
+            return @"Failure";
+            
+        default:
+            return @"";
+    }
+}
 
 
 @interface ECCipher ()
@@ -18,6 +53,8 @@
 @property (nonatomic, assign) ECCipherKeySize keySize;
 @property (nonatomic, strong) NSData *key;
 @property (nonatomic, strong) NSData *iv;
+
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize;
 
 @end
 
@@ -43,10 +80,12 @@
         if (iv != nil)
             NSAssert2([self blockSize] == [iv length], @"The inizialization vector's length must be equal to the algorithm's block size (%ld != %ld).", [iv length], [self blockSize]);
         
+        NSAssert1([self checkKeySize:keySize], @"The chosen key size (%ld) is not valid for this algorithm.", keySize);
+        
         _key = key;
         _option = opt;
-        _keySize = keySize;
         _iv = iv;
+        _keySize = keySize;
     }
     
     return self;
@@ -60,7 +99,12 @@
                               iv:iv];
 }
 
-- (NSData *)encryptData:(NSData *)data
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+{
+    return NO;
+}
+
+- (ECCipherEncryptedData *)encryptData:(NSData *)data error:(NSError **)error;
 {
     // 'key' should be 32 bytes for AES256, will be null-padded otherwise
     char keyPtr[self.keySize+1]; // room for terminator (unused)
@@ -80,30 +124,38 @@
     size_t numBytesEncrypted = 0;
     CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, self.algorithm, self.option,
                                           keyPtr, self.keySize,
-                                          NULL /* initialization vector (optional) */,
+                                          (self.iv ? [self.iv bytes] : NULL) /* iv (optional) */,
                                           [data bytes], dataLength, /* input */
                                           buffer, bufferSize, /* output */
                                           &numBytesEncrypted);
     if (cryptStatus == kCCSuccess) {
         //the returned NSData takes ownership of the buffer and will free it on deallocation
-        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
+        NSData *encryptedData = [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
+        return [[ECCipherEncryptedData alloc] initWithData:encryptedData];
     }
     
     free(buffer); //free the buffer;
+    
+    if (error) {
+        *error = [NSError errorWithDomain:ECCipherError
+                                     code:ECCipherEncryptionError
+                                 userInfo:@{NSLocalizedDescriptionKey: GetCCCryptorStatusString(cryptStatus)}];
+    }
+    
     return nil;
 }
 
-- (NSData *)encryptString:(NSString *)str
+- (ECCipherEncryptedData *)encryptString:(NSString *)str error:(NSError **)error
 {
-    return [self encryptData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    return [self encryptData:[str dataUsingEncoding:NSUTF8StringEncoding] error:error];
 }
 
-- (NSData *)encrypt:(NSString *)str
+- (ECCipherEncryptedData *)encrypt:(NSString *)str error:(NSError **)error
 {
-    return [self encryptString:str];
+    return [self encryptString:str error:error];
 }
 
-- (NSData *)decrypt:(NSData *)data
+- (ECCipherPlainData *)decryptData:(NSData *)data error:(NSError **)error
 {
     // 'key' should be 32 bytes for AES256, will be null-padded otherwise
     char keyPtr[kCCKeySizeAES256+1]; // room for terminator (unused)
@@ -123,18 +175,31 @@
     size_t numBytesDecrypted = 0;
     CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, self.algorithm, self.option,
                                           keyPtr, self.keySize,
-                                          NULL /* initialization vector (optional) */,
+                                          (self.iv ? [self.iv bytes] : NULL) /* iv (optional) */,
                                           [data bytes], dataLength, /* input */
                                           buffer, bufferSize, /* output */
                                           &numBytesDecrypted);
     
     if (cryptStatus == kCCSuccess) {
         //the returned NSData takes ownership of the buffer and will free it on deallocation
-        return [NSData dataWithBytesNoCopy:buffer length:numBytesDecrypted];
+        NSData *decryptedData = [NSData dataWithBytesNoCopy:buffer length:numBytesDecrypted];
+        return [[ECCipherPlainData alloc] initWithData:decryptedData];
     }
     
     free(buffer); //free the buffer;
+    
+    if (error) {
+        *error = [NSError errorWithDomain:ECCipherError
+                                     code:ECCipherDecryptionError
+                                 userInfo:@{NSLocalizedDescriptionKey: GetCCCryptorStatusString(cryptStatus)}];
+    }
+    
     return nil;
+}
+
+- (ECCipherPlainData *)decrypt:(ECCipherEncryptedData *)encryptedData error:(NSError **)error
+{
+    return [self decryptData:encryptedData.rawData error:error];
 }
 
 @end
@@ -153,6 +218,11 @@
     return self;
 }
 
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+{
+    return keySize == ECCipherKeySizeAES128 || keySize == ECCipherKeySizeAES192 || keySize == ECCipherKeySizeAES256;
+}
+
 @end
 
 @implementation ECCipherDES
@@ -166,6 +236,11 @@
     }
     
     return self;
+}
+
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+{
+    return keySize == ECCipherKeySizeDES;
 }
 
 @end
@@ -183,6 +258,11 @@
     return self;
 }
 
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+{
+    return keySize == ECCipherKeySize3DES;
+}
+
 @end
 
 @implementation ECCipherCAST
@@ -196,6 +276,11 @@
     }
     
     return self;
+}
+
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+{
+    return keySize == ECCipherKeySizeMinCAST || keySize == ECCipherKeySizeMaxCAST;
 }
 
 @end
@@ -214,6 +299,11 @@
     return self;
 }
 
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+{
+    return keySize == ECCipherKeySizeMinRC4 || keySize == ECCipherKeySizeMaxRC4;
+}
+
 @end
  */
 
@@ -230,6 +320,11 @@
     return self;
 }
 
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+{
+    return keySize == ECCipherKeySizeMinRC2 || keySize == ECCipherKeySizeMaxRC2;
+}
+
 @end
 
 @implementation ECCipherBlowfish
@@ -243,6 +338,11 @@
     }
     
     return self;
+}
+
+- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+{
+    return keySize == ECCipherKeySizeMinBlowfish || keySize == ECCipherKeySizeMaxBlowfish;
 }
 
 @end

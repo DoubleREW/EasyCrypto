@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 
 
+@class ECCipherPlainData, ECCipherEncryptedData;
+
+extern NSString * _Nonnull const ECCipherError;
+extern NSInteger ECCipherEncryptionError;
+extern NSInteger ECCipherDecryptionError;
+
+
 typedef NS_ENUM(NSUInteger, ECCipherAlgorithm) {
     ECCipherAlgorithmAES128 = 0,
     ECCipherAlgorithmAES = 0,
@@ -60,18 +67,19 @@ typedef NS_ENUM(NSUInteger, ECCipherBlockSize) {
 @property (nonatomic, readonly) ECCipherBlockSize blockSize; // Byte
 @property (nonatomic, readonly) ECCipherOption option;
 @property (nonatomic, readonly) ECCipherKeySize keySize; // Byte
-@property (nonatomic, readonly) NSData *key;
-@property (nonatomic, readonly) NSData *iv; // Initilization Vector ([iv length] == [blockSize length])
+@property (nonatomic, readonly, nonnull) NSData *key;
+@property (nonatomic, readonly, nullable) NSData *iv; // Initilization Vector ([iv length] == [blockSize length])
 
 // Se iv==nil verrà usato un array di bytes nulli
-- (instancetype)initWithDataKey:(NSData *)key option:(ECCipherOption)opt keySize:(ECCipherKeySize)keySize iv:(NSData *)iv;
-- (instancetype)initWithStringKey:(NSString *)key option:(ECCipherOption)opt keySize:(ECCipherKeySize)keySize iv:(NSData *)iv;
+- (nonnull instancetype)initWithDataKey:(nonnull NSData *)key option:(ECCipherOption)opt keySize:(ECCipherKeySize)keySize iv:(nullable NSData *)iv;
+- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key option:(ECCipherOption)opt keySize:(ECCipherKeySize)keySize iv:(nullable NSData *)iv;
 
-- (NSData *)encryptData:(NSData *)data;
-- (NSData *)encryptString:(NSString *)str;
-- (NSData *)encrypt:(NSString *)str;  // Shortcut for encryptString: 
+- (nullable ECCipherEncryptedData *)encryptData:(nonnull NSData *)data error:(NSError * _Nullable * _Nullable)error;
+- (nullable ECCipherEncryptedData *)encryptString:(nonnull NSString *)str error:(NSError * _Nullable * _Nullable)error;
+- (nullable ECCipherEncryptedData *)encrypt:(nonnull NSString *)str error:(NSError * _Nullable * _Nullable)error;  // Shortcut for encryptString:
 
-- (NSData *)decrypt:(NSData *)data;
+- (nullable ECCipherPlainData *)decryptData:(nonnull NSData *)data error:(NSError * _Nullable * _Nullable)error;
+- (nullable ECCipherPlainData *)decrypt:(nonnull ECCipherEncryptedData *)data error:(NSError * _Nullable * _Nullable)error;
 
 @end
 
