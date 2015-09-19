@@ -58,7 +58,7 @@ class HmacTests: XCTestCase {
     func testAwsS3AutheticationKey() {
         let secretAccessKeyId = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
         let stringToSign = "GET\n" +
-            "\n" +
+            "\n" + 
             "\n" +
             "Tue, 27 Mar 2007 19:36:42 +0000\n" +
             "/johnsmith/photos/puppy.jpg"
