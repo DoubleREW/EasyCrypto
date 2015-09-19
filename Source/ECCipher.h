@@ -28,8 +28,10 @@ typedef NS_ENUM(NSUInteger, ECCipherAlgorithm) {
 };
 
 typedef NS_ENUM(NSUInteger, ECCipherOption) {
-    ECCipherOptionPKCS7Padding   = 0x0001,
-    ECCipherOptionECBMode        = 0x0002
+    ECCipherOptionCBCModeNoPadding     = 0x0000, // CBC mode, no padding
+    ECCipherOptionCBCModePKCS7Padding  = 0x0001, // CBC mode, PKCS7 padding
+    ECCipherOptionECBModeNoPadding     = 0x0002, // ECB mode, no padding
+    ECCipherOptionECBModePKCS7Padding  = 0x0003  // ECB mode, PKCS7 padding
 };
 
 typedef NS_ENUM(NSUInteger, ECCipherKeySize) {

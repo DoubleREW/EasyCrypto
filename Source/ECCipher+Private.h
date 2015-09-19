@@ -9,6 +9,6 @@
 #import <CommonCrypto/CommonCryptor.h>
 #import "ECCipher.h"
 
-@interface ECCipher (Private)
+@interface ECCipher ()
 
 @end

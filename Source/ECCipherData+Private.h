@@ -9,7 +9,7 @@
 #import "ECCipherData.h"
 
 
-@interface ECCipherData (Private)
+@interface ECCipherData ()
 
 - (instancetype)initWithData:(NSData *)data;
 

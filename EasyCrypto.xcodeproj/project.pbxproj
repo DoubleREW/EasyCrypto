@@ -37,6 +37,16 @@
 		7147D81E1BAB35C00083EA78 /* ECCipherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7147D81A1BAB35C00083EA78 /* ECCipherData.m */; settings = {ASSET_TAGS = (); }; };
 		7147D8201BAB36070083EA78 /* ECCipherData+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7147D81F1BAB36070083EA78 /* ECCipherData+Private.h */; settings = {ASSET_TAGS = (); }; };
 		7147D8211BAB36070083EA78 /* ECCipherData+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7147D81F1BAB36070083EA78 /* ECCipherData+Private.h */; settings = {ASSET_TAGS = (); }; };
+		71548C481BADC43F00A89CA0 /* ECHmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 71548C461BADC43F00A89CA0 /* ECHmac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71548C491BADC43F00A89CA0 /* ECHmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 71548C461BADC43F00A89CA0 /* ECHmac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71548C4A1BADC43F00A89CA0 /* ECHmac.m in Sources */ = {isa = PBXBuildFile; fileRef = 71548C471BADC43F00A89CA0 /* ECHmac.m */; settings = {ASSET_TAGS = (); }; };
+		71548C4B1BADC43F00A89CA0 /* ECHmac.m in Sources */ = {isa = PBXBuildFile; fileRef = 71548C471BADC43F00A89CA0 /* ECHmac.m */; settings = {ASSET_TAGS = (); }; };
+		71548C4E1BADC76700A89CA0 /* ECBaseHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 71548C4C1BADC76700A89CA0 /* ECBaseHash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71548C4F1BADC76700A89CA0 /* ECBaseHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 71548C4C1BADC76700A89CA0 /* ECBaseHash.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71548C501BADC76700A89CA0 /* ECBaseHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 71548C4D1BADC76700A89CA0 /* ECBaseHash.m */; settings = {ASSET_TAGS = (); }; };
+		71548C511BADC76700A89CA0 /* ECBaseHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 71548C4D1BADC76700A89CA0 /* ECBaseHash.m */; settings = {ASSET_TAGS = (); }; };
+		71548C531BADCE8400A89CA0 /* HmacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71548C521BADCE8400A89CA0 /* HmacTests.swift */; settings = {ASSET_TAGS = (); }; };
+		71548C541BADCE8400A89CA0 /* HmacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71548C521BADCE8400A89CA0 /* HmacTests.swift */; settings = {ASSET_TAGS = (); }; };
 		7192EB6C1BA98B100084CE5B /* ECHashExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB6A1BA98B100084CE5B /* ECHashExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7192EB6D1BA98B100084CE5B /* ECHashExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB6B1BA98B100084CE5B /* ECHashExtensions.m */; settings = {ASSET_TAGS = (); }; };
 		7192EB6E1BA98B2F0084CE5B /* ECHashExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB6A1BA98B100084CE5B /* ECHashExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,8 +55,8 @@
 		7192EB731BA98B8A0084CE5B /* ECHash.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB701BA98B8A0084CE5B /* ECHash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7192EB741BA98B8A0084CE5B /* ECHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB711BA98B8A0084CE5B /* ECHash.m */; settings = {ASSET_TAGS = (); }; };
 		7192EB751BA98B8A0084CE5B /* ECHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB711BA98B8A0084CE5B /* ECHash.m */; settings = {ASSET_TAGS = (); }; };
-		7192EB7F1BA997030084CE5B /* ECHash+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB7C1BA98BCE0084CE5B /* ECHash+Private.h */; settings = {ASSET_TAGS = (); }; };
-		7192EB801BA997050084CE5B /* ECHash+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB7C1BA98BCE0084CE5B /* ECHash+Private.h */; settings = {ASSET_TAGS = (); }; };
+		7192EB7F1BA997030084CE5B /* ECBaseHash+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB7C1BA98BCE0084CE5B /* ECBaseHash+Private.h */; settings = {ASSET_TAGS = (); }; };
+		7192EB801BA997050084CE5B /* ECBaseHash+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7192EB7C1BA98BCE0084CE5B /* ECBaseHash+Private.h */; settings = {ASSET_TAGS = (); }; };
 		7192EB851BA999DF0084CE5B /* HashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB841BA999DF0084CE5B /* HashTests.swift */; settings = {ASSET_TAGS = (); }; };
 		7192EB861BA9A3E40084CE5B /* HashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7192EB841BA999DF0084CE5B /* HashTests.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -95,11 +105,16 @@
 		7147D8191BAB35C00083EA78 /* ECCipherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECCipherData.h; sourceTree = "<group>"; };
 		7147D81A1BAB35C00083EA78 /* ECCipherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCipherData.m; sourceTree = "<group>"; };
 		7147D81F1BAB36070083EA78 /* ECCipherData+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ECCipherData+Private.h"; sourceTree = "<group>"; };
+		71548C461BADC43F00A89CA0 /* ECHmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECHmac.h; sourceTree = "<group>"; };
+		71548C471BADC43F00A89CA0 /* ECHmac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECHmac.m; sourceTree = "<group>"; };
+		71548C4C1BADC76700A89CA0 /* ECBaseHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECBaseHash.h; sourceTree = "<group>"; };
+		71548C4D1BADC76700A89CA0 /* ECBaseHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECBaseHash.m; sourceTree = "<group>"; };
+		71548C521BADCE8400A89CA0 /* HmacTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HmacTests.swift; sourceTree = "<group>"; };
 		7192EB6A1BA98B100084CE5B /* ECHashExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECHashExtensions.h; path = Source/ECHashExtensions.h; sourceTree = SOURCE_ROOT; };
 		7192EB6B1BA98B100084CE5B /* ECHashExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECHashExtensions.m; path = Source/ECHashExtensions.m; sourceTree = SOURCE_ROOT; };
 		7192EB701BA98B8A0084CE5B /* ECHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECHash.h; path = Source/ECHash.h; sourceTree = SOURCE_ROOT; };
 		7192EB711BA98B8A0084CE5B /* ECHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECHash.m; path = Source/ECHash.m; sourceTree = SOURCE_ROOT; };
-		7192EB7C1BA98BCE0084CE5B /* ECHash+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ECHash+Private.h"; path = "Source/ECHash+Private.h"; sourceTree = SOURCE_ROOT; };
+		7192EB7C1BA98BCE0084CE5B /* ECBaseHash+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ECBaseHash+Private.h"; path = "Source/ECBaseHash+Private.h"; sourceTree = SOURCE_ROOT; };
 		7192EB831BA999DF0084CE5B /* EasyCrypto OSX Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyCrypto OSX Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		7192EB841BA999DF0084CE5B /* HashTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				7192EB841BA999DF0084CE5B /* HashTests.swift */,
+				71548C521BADCE8400A89CA0 /* HmacTests.swift */,
 				71292D5B1BAA0D6200512EAE /* CipherTests.swift */,
 				7109589E1BA87C1E002031AA /* Supporting Files */,
 			);
@@ -239,9 +255,13 @@
 		7192EB691BA98AF20084CE5B /* Hash */ = {
 			isa = PBXGroup;
 			children = (
+				71548C4C1BADC76700A89CA0 /* ECBaseHash.h */,
+				71548C4D1BADC76700A89CA0 /* ECBaseHash.m */,
+				7192EB7C1BA98BCE0084CE5B /* ECBaseHash+Private.h */,
 				7192EB701BA98B8A0084CE5B /* ECHash.h */,
 				7192EB711BA98B8A0084CE5B /* ECHash.m */,
-				7192EB7C1BA98BCE0084CE5B /* ECHash+Private.h */,
+				71548C461BADC43F00A89CA0 /* ECHmac.h */,
+				71548C471BADC43F00A89CA0 /* ECHmac.m */,
 				7192EB6A1BA98B100084CE5B /* ECHashExtensions.h */,
 				7192EB6B1BA98B100084CE5B /* ECHashExtensions.m */,
 				71292D511BA9EDC000512EAE /* ECHashExtensions.swift */,
@@ -270,7 +290,9 @@
 				710958B31BA87C5B002031AA /* ECRsaSignature.h in Headers */,
 				710958AD1BA87C5B002031AA /* ECRsaKey.h in Headers */,
 				710958AF1BA87C5B002031AA /* ECRsaKey+Private.h in Headers */,
-				7192EB7F1BA997030084CE5B /* ECHash+Private.h in Headers */,
+				7192EB7F1BA997030084CE5B /* ECBaseHash+Private.h in Headers */,
+				71548C481BADC43F00A89CA0 /* ECHmac.h in Headers */,
+				71548C4E1BADC76700A89CA0 /* ECBaseHash.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,9 +305,11 @@
 				7147D81C1BAB35C00083EA78 /* ECCipherData.h in Headers */,
 				7192EB6E1BA98B2F0084CE5B /* ECHashExtensions.h in Headers */,
 				710958DE1BA87FDA002031AA /* EasyCrypto.h in Headers */,
+				71548C4F1BADC76700A89CA0 /* ECBaseHash.h in Headers */,
 				7192EB731BA98B8A0084CE5B /* ECHash.h in Headers */,
 				7147D8211BAB36070083EA78 /* ECCipherData+Private.h in Headers */,
-				7192EB801BA997050084CE5B /* ECHash+Private.h in Headers */,
+				7192EB801BA997050084CE5B /* ECBaseHash+Private.h in Headers */,
+				71548C491BADC43F00A89CA0 /* ECHmac.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,8 +469,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71548C4A1BADC43F00A89CA0 /* ECHmac.m in Sources */,
 				71292D571BA9F73300512EAE /* ECCipher.m in Sources */,
 				7192EB741BA98B8A0084CE5B /* ECHash.m in Sources */,
+				71548C501BADC76700A89CA0 /* ECBaseHash.m in Sources */,
 				710958AE1BA87C5B002031AA /* ECRsaKey.m in Sources */,
 				71292D521BA9EDC000512EAE /* ECHashExtensions.swift in Sources */,
 				710958B41BA87C5B002031AA /* ECRsaSignature.m in Sources */,
@@ -463,6 +489,7 @@
 			files = (
 				71292D5C1BAA0D6200512EAE /* CipherTests.swift in Sources */,
 				7192EB851BA999DF0084CE5B /* HashTests.swift in Sources */,
+				71548C531BADCE8400A89CA0 /* HmacTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +497,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71548C511BADC76700A89CA0 /* ECBaseHash.m in Sources */,
+				71548C4B1BADC43F00A89CA0 /* ECHmac.m in Sources */,
 				7147D8131BAAE4330083EA78 /* ECCipher.m in Sources */,
 				7192EB751BA98B8A0084CE5B /* ECHash.m in Sources */,
 				7192EB6F1BA98B2F0084CE5B /* ECHashExtensions.m in Sources */,
@@ -481,6 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71548C541BADCE8400A89CA0 /* HmacTests.swift in Sources */,
 				7192EB861BA9A3E40084CE5B /* HashTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

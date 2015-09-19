@@ -7,10 +7,15 @@
 //
 
 #import <CommonCrypto/CommonDigest.h>
-#import "ECHash.h"
+#import "ECBaseHash.h"
 
 
-@interface ECHash (Private)
+@interface ECBaseHash ()
+
+@property (nonatomic, strong) NSData *inputData;
+@property (nonatomic, strong) NSData *digest;
+@property (nonatomic, strong) NSString *hexDigest;
+@property (nonatomic, assign) NSUInteger digestLength;
 
 - (NSData *)_calculateDigest:(const void *)data len:(CC_LONG)len;
 - (NSString *)_calculateHexDigest:(NSData *)data;

@@ -7,20 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ECBaseHash.h"
 
-@interface ECHash : NSObject
-
-@property (nonatomic, readonly, nonnull) NSData *digest;
-@property (nonatomic, readonly, nonnull) NSString *hexDigest;
-@property (nonatomic, readonly) NSUInteger digestLength; // In bit
-
+@interface ECHash : ECBaseHash
 
 - (nonnull instancetype)initWithData:(nonnull NSData *)data;
 - (nonnull instancetype)initWithString:(nonnull NSString *)str;
-
-- (void)updateWithData:(nonnull NSData *)data;
-- (void)updateWithString:(nonnull NSString *)str;
-- (void)update:(nonnull NSString *)str; // Shortcut for updateWithString:
 
 @end
 
