@@ -36,7 +36,7 @@
 // MARK: Implementations
 @implementation ECHashMD2
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     return CC_MD2_DIGEST_LENGTH;
 }
@@ -53,7 +53,7 @@
 
 @implementation ECHashMD4
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     return CC_MD4_DIGEST_LENGTH;
 }
@@ -70,7 +70,7 @@
 
 @implementation ECHashMD5
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     return CC_MD5_DIGEST_LENGTH;
 }
@@ -87,7 +87,7 @@
 
 @implementation ECHashSHA1
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     return CC_SHA1_DIGEST_LENGTH;
 }
@@ -104,7 +104,7 @@
 
 @implementation ECHashSHA224
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     return CC_SHA224_DIGEST_LENGTH;
 }
@@ -121,7 +121,7 @@
 
 @implementation ECHashSHA256
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     return CC_SHA256_DIGEST_LENGTH;
 }
@@ -138,7 +138,7 @@
 
 @implementation ECHashSHA384
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     return CC_SHA384_DIGEST_LENGTH;
 }
@@ -155,7 +155,7 @@
 
 @implementation ECHashSHA512
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     return CC_SHA512_DIGEST_LENGTH;
 }

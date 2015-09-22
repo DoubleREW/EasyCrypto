@@ -65,7 +65,7 @@ CCHmacAlgorithm CCHmacAlgFromDigestAlg(ECHmacDigestAlgorithm algo)
                        digestAlg:digestmod];
 }
 
-- (NSUInteger)digestLength
+- (NSInteger)digestLength
 {
     switch (self.digestAlgorithm) {
         case ECHmacDigestAlgorithmMD5:

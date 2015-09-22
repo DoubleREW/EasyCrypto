@@ -53,6 +53,15 @@ class HmacTests: XCTestCase {
         XCTAssertEqual(self.hmac_sha512.hexDigest,  "b9c2e0115e73636262eae929d5eda6795d3bd1e620ccfd778bd09357145e416b191e2e061dfb24fa13e8e9cd89e232a71cba4c8fd6ea3dd9fe2c3b62bd1ab579")
     }
     
+    func testHmacLength() {
+        XCTAssertEqual(hmac_md5.digest.length,       hmac_md5.digestLength)
+        XCTAssertEqual(hmac_sha1.digest.length,      hmac_sha1.digestLength)
+        XCTAssertEqual(hmac_sha224.digest.length,    hmac_sha224.digestLength)
+        XCTAssertEqual(hmac_sha256.digest.length,    hmac_sha256.digestLength)
+        XCTAssertEqual(hmac_sha384.digest.length,    hmac_sha384.digestLength)
+        XCTAssertEqual(hmac_sha512.digest.length,    hmac_sha512.digestLength)
+    }
+    
     /// HMAC-SHA1 is used to generate the authentication signature of the Amazon S3 REST API
     /// - Note: Read: [AWS S3: Signing and Authenticating REST Requests](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html)
     func testAwsS3AutheticationKey() {

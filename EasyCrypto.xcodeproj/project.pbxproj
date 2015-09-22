@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		710958841BA878C1002031AA /* EasyCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958831BA878C1002031AA /* EasyCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7109588B1BA878C1002031AA /* EasyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710958801BA878C1002031AA /* EasyCrypto.framework */; settings = {ASSET_TAGS = (); }; };
-		7109589D1BA87C01002031AA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7109589B1BA87C01002031AA /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		710958AB1BA87C5B002031AA /* ECRsa.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958A01BA87C5B002031AA /* ECRsa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		710958AC1BA87C5B002031AA /* ECRsa.m in Sources */ = {isa = PBXBuildFile; fileRef = 710958A11BA87C5B002031AA /* ECRsa.m */; settings = {ASSET_TAGS = (); }; };
 		710958AD1BA87C5B002031AA /* ECRsaKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 710958A21BA87C5B002031AA /* ECRsaKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -444,7 +443,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7109589D1BA87C01002031AA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

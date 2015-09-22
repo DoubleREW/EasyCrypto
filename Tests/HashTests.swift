@@ -65,6 +65,17 @@ class HashTests: XCTestCase {
         XCTAssertEqual(sha512.hexDigest,    "20fa40952952d7e9f4b42f8bd8e39b5c77418b98a1dd558747f4f57d46ac07f17fcea9c59c62b51051aa36902a99ea2b4508fb489724da259f0236174721c01d")
     }
     
+    func testDigestLength() {
+        XCTAssertEqual(md2.digest.length,       md2.digestLength)
+        XCTAssertEqual(md4.digest.length,       md4.digestLength)
+        XCTAssertEqual(md5.digest.length,       md5.digestLength)
+        XCTAssertEqual(sha1.digest.length,      sha1.digestLength)
+        XCTAssertEqual(sha224.digest.length,    sha224.digestLength)
+        XCTAssertEqual(sha256.digest.length,    sha256.digestLength)
+        XCTAssertEqual(sha384.digest.length,    sha384.digestLength)
+        XCTAssertEqual(sha512.digest.length,    sha512.digestLength)
+    }
+    
     func testHashStringExtension() {
         XCTAssertEqual(md2.digest,      self.message.md2().digest)
         XCTAssertEqual(md4.digest,      self.message.md4().digest)

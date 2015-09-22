@@ -12,7 +12,7 @@
 
 @property (nonatomic, readonly, nonnull) NSData *digest;
 @property (nonatomic, readonly, nonnull) NSString *hexDigest;
-@property (nonatomic, readonly) NSUInteger digestLength;
+@property (nonatomic, readonly) NSInteger digestLength;
 
 - (void)updateWithData:(nonnull NSData *)data;
 - (void)updateWithString:(nonnull NSString *)str;
