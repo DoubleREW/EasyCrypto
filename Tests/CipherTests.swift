@@ -30,26 +30,26 @@ class CipherTests: XCTestCase {
     
     func testAES128() {
         let encrypter1 = ECCipherAES(
-            stringKey: self.key16, option: .CBCModePKCS7Padding, iv: self.iv16)
+            stringKey: self.key16, mode:.CBC, padding:.PKCS7, iv: self.iv16)
         
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
         let decrypter1_correct = ECCipherAES(
-            stringKey: self.key16, option: .CBCModePKCS7Padding, iv: self.iv16)
+            stringKey: self.key16, mode:.CBC, padding:.PKCS7, iv: self.iv16)
         // Invalid IV (nil)
         let decrypter1_wrong1 = ECCipherAES(
-            stringKey: self.key16, option: .CBCModePKCS7Padding, iv: nil)
+            stringKey: self.key16, mode:.CBC, padding:.PKCS7, iv: nil)
         // Invalid IV
         let decrypter1_wrong2 = ECCipherAES(
-            stringKey: self.key16, option: .CBCModePKCS7Padding,
+            stringKey: self.key16, mode:.CBC, padding:.PKCS7,
             iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherAES(
-            stringKey: "L]/.k3ac6de8QCv{", option: .CBCModePKCS7Padding, iv: self.iv16)
+            stringKey: "L]/.k3ac6de8QCv{", mode:.CBC, padding:.PKCS7, iv: self.iv16)
         // Invalid options
         let decrypter1_wrong4 = ECCipherAES(
-            stringKey: self.key16, option: .ECBModePKCS7Padding, iv: self.iv16)
+            stringKey: self.key16, mode:.ECB, padding:.PKCS7, iv: self.iv16)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
         XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
@@ -64,26 +64,26 @@ class CipherTests: XCTestCase {
     
     func testAES192() {
         let encrypter1 = ECCipherAES(
-            stringKey: self.key24, option: .CBCModePKCS7Padding, iv: self.iv16)
+            stringKey: self.key24, mode:.CBC, padding:.PKCS7, iv: self.iv16)
         
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
         let decrypter1_correct = ECCipherAES(
-            stringKey: self.key24, option: .CBCModePKCS7Padding, iv: self.iv16)
+            stringKey: self.key24, mode:.CBC, padding:.PKCS7, iv: self.iv16)
         // Invalid IV (nil)
         let decrypter1_wrong1 = ECCipherAES(
-            stringKey: self.key24, option: .CBCModePKCS7Padding, iv: nil)
+            stringKey: self.key24, mode:.CBC, padding:.PKCS7, iv: nil)
         // Invalid IV
         let decrypter1_wrong2 = ECCipherAES(
-            stringKey: self.key24, option: .CBCModePKCS7Padding,  iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
+            stringKey: self.key24, mode:.CBC, padding:.PKCS7,  iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherAES(
             stringKey: "ZmhgGTpThwFSwJuHBemnD9Hr",
-            option: .CBCModePKCS7Padding, iv: self.iv16)
+            mode:.CBC, padding:.PKCS7, iv: self.iv16)
         // Invalid options
         let decrypter1_wrong4 = ECCipherAES(
-            stringKey: self.key24, option: .ECBModePKCS7Padding, iv: self.iv16)
+            stringKey: self.key24, mode:.ECB, padding:.PKCS7, iv: self.iv16)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
         XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
@@ -97,26 +97,26 @@ class CipherTests: XCTestCase {
     }
     
     func testAES256() {
-        let encrypter1 = ECCipherAES(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv16)
+        let encrypter1 = ECCipherAES(stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: self.iv16)
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
         let decrypter1_correct = ECCipherAES(
-            stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv16)
+            stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: self.iv16)
         // Invalid IV (nil)
         let decrypter1_wrong1 = ECCipherAES(
-            stringKey: self.key32, option: .CBCModePKCS7Padding, iv: nil)
+            stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: nil)
         // Invalid IV
         let decrypter1_wrong2 = ECCipherAES(
-            stringKey: self.key32, option: .CBCModePKCS7Padding,
+            stringKey: self.key32, mode:.CBC, padding:.PKCS7,
             iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherAES(
             stringKey: "xj5KgSEqhFPfrDYtZvcUckhHP5KBYRaT",
-            option: .CBCModePKCS7Padding, iv: self.iv16)
+            mode:.CBC, padding:.PKCS7, iv: self.iv16)
         // Invalid options
         let decrypter1_wrong4 = ECCipherAES(
-            stringKey: self.key32, option: .ECBModePKCS7Padding, iv: self.iv16)
+            stringKey: self.key32, mode:.ECB, padding:.PKCS7, iv: self.iv16)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
         XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
@@ -130,23 +130,23 @@ class CipherTests: XCTestCase {
     }
     
     func testDES() {
-        let encrypter1 = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encrypter1 = ECCipherDES(stringKey: self.key8, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        let decrypter1_correct = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let decrypter1_correct = ECCipherDES(stringKey: self.key8, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid IV (nil)
-        let decrypter1_wrong1 = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding, iv: nil)
+        let decrypter1_wrong1 = ECCipherDES(stringKey: self.key8, mode:.CBC, padding:.PKCS7, iv: nil)
         // Invalid IV
-        let decrypter1_wrong2 = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding,
+        let decrypter1_wrong2 = ECCipherDES(stringKey: self.key8, mode:.CBC, padding:.PKCS7,
             iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherDES(
             stringKey: "6XKE4bHw",
-            option: .CBCModePKCS7Padding, iv: self.iv8)
+            mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid options
         let decrypter1_wrong4 = ECCipherDES(
-            stringKey: self.key8, option: .ECBModePKCS7Padding,
+            stringKey: self.key8, mode:.ECB, padding:.PKCS7,
             iv: self.iv8)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
@@ -161,23 +161,23 @@ class CipherTests: XCTestCase {
     }
     
     func test3DES() {
-        let encrypter1 = ECCipher3DES(stringKey: self.key24, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encrypter1 = ECCipher3DES(stringKey: self.key24, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        let decrypter1_correct = ECCipher3DES(stringKey: self.key24, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let decrypter1_correct = ECCipher3DES(stringKey: self.key24, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid IV (nil)
-        let decrypter1_wrong1 = ECCipher3DES(stringKey: self.key24, option: .CBCModePKCS7Padding, iv: nil)
+        let decrypter1_wrong1 = ECCipher3DES(stringKey: self.key24, mode:.CBC, padding:.PKCS7, iv: nil)
         // Invalid IV
-        let decrypter1_wrong2 = ECCipher3DES(stringKey: self.key24, option: .CBCModePKCS7Padding,
+        let decrypter1_wrong2 = ECCipher3DES(stringKey: self.key24, mode:.CBC, padding:.PKCS7,
             iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipher3DES(
             stringKey: "wThUGtqUqFerbbBSM3C2dEEn",
-            option: .CBCModePKCS7Padding, iv: self.iv8)
+            mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid options
         let decrypter1_wrong4 = ECCipher3DES(
-            stringKey: self.key24, option: .ECBModePKCS7Padding,
+            stringKey: self.key24, mode:.ECB, padding:.PKCS7,
             iv: self.iv8)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
@@ -192,23 +192,23 @@ class CipherTests: XCTestCase {
     }
     
     func testCAST() {
-        let encrypter1 = ECCipherCAST(stringKey: self.key16, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encrypter1 = ECCipherCAST(stringKey: self.key16, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        let decrypter1_correct = ECCipherCAST(stringKey: self.key16, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let decrypter1_correct = ECCipherCAST(stringKey: self.key16, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid IV (nil)
-        let decrypter1_wrong1 = ECCipherCAST(stringKey: self.key16, option: .CBCModePKCS7Padding, iv: nil)
+        let decrypter1_wrong1 = ECCipherCAST(stringKey: self.key16, mode:.CBC, padding:.PKCS7, iv: nil)
         // Invalid IV
-        let decrypter1_wrong2 = ECCipherCAST(stringKey: self.key16, option: .CBCModePKCS7Padding,
+        let decrypter1_wrong2 = ECCipherCAST(stringKey: self.key16, mode:.CBC, padding:.PKCS7,
             iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherCAST(
             stringKey: "8V3c68YT2ukeVVSn",
-            option: .CBCModePKCS7Padding, iv: self.iv8)
+            mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid options
         let decrypter1_wrong4 = ECCipherCAST(
-            stringKey: self.key16, option: .ECBModePKCS7Padding,
+            stringKey: self.key16, mode:.ECB, padding:.PKCS7,
             iv: self.iv8)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
@@ -223,23 +223,23 @@ class CipherTests: XCTestCase {
     }
     
     func testRC2() {
-        let encrypter1 = ECCipherRC2(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encrypter1 = ECCipherRC2(stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        let decrypter1_correct = ECCipherRC2(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let decrypter1_correct = ECCipherRC2(stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid IV (nil)
-        let decrypter1_wrong1 = ECCipherRC2(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: nil)
+        let decrypter1_wrong1 = ECCipherRC2(stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: nil)
         // Invalid IV
-        let decrypter1_wrong2 = ECCipherRC2(stringKey: self.key32, option: .CBCModePKCS7Padding,
+        let decrypter1_wrong2 = ECCipherRC2(stringKey: self.key32, mode:.CBC, padding:.PKCS7,
             iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherRC2(
             stringKey: "JWmYK9UQD5QPsNgNnsuPxfsUrtF6vY6F",
-            option: .CBCModePKCS7Padding, iv: self.iv8)
+            mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid options
         let decrypter1_wrong4 = ECCipherRC2(
-            stringKey: self.key32, option: .ECBModePKCS7Padding,
+            stringKey: self.key32, mode:.ECB, padding:.PKCS7,
             iv: self.iv8)
         print("En: \(encryted_string1)")
         //return
@@ -256,23 +256,23 @@ class CipherTests: XCTestCase {
     }
     
     func testBlowfish() {
-        let encrypter1 = ECCipherBlowfish(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encrypter1 = ECCipherBlowfish(stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        let decrypter1_correct = ECCipherBlowfish(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let decrypter1_correct = ECCipherBlowfish(stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid IV (nil)
-        let decrypter1_wrong1 = ECCipherBlowfish(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: nil)
+        let decrypter1_wrong1 = ECCipherBlowfish(stringKey: self.key32, mode:.CBC, padding:.PKCS7, iv: nil)
         // Invalid IV
-        let decrypter1_wrong2 = ECCipherBlowfish(stringKey: self.key32, option: .CBCModePKCS7Padding,
+        let decrypter1_wrong2 = ECCipherBlowfish(stringKey: self.key32, mode:.CBC, padding:.PKCS7,
             iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherBlowfish(
             stringKey: "JWmYK9UQD5QPsNgNnsuPxfsUrtF6vY6F",
-            option: .CBCModePKCS7Padding, iv: self.iv8)
+            mode:.CBC, padding:.PKCS7, iv: self.iv8)
         // Invalid options
         let decrypter1_wrong4 = ECCipherBlowfish(
-            stringKey: self.key32, option: .ECBModePKCS7Padding,
+            stringKey: self.key32, mode:.ECB, padding:.PKCS7,
             iv: self.iv8)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)

@@ -19,50 +19,27 @@ extern NSInteger ECCipherDecryptionError;
 typedef NS_ENUM(NSUInteger, ECCipherAlgorithm) {
     ECCipherAlgorithmAES128     = 0,
     ECCipherAlgorithmAES        = 0,
-    ECCipherAlgorithmDES        = 1,
-    ECCipherAlgorithm3DES       = 2,
-    ECCipherAlgorithmCAST       = 3,
-    ECCipherAlgorithmRC4        = 4,
-    ECCipherAlgorithmRC2        = 5,
-    ECCipherAlgorithmBlowfish   = 6
+    ECCipherAlgorithmDES,
+    ECCipherAlgorithm3DES,
+    ECCipherAlgorithmCAST,
+    ECCipherAlgorithmRC2,
+    ECCipherAlgorithmBlowfish
 };
 
-typedef NS_ENUM(NSUInteger, ECCipherOption) {
-    ECCipherOptionCBCModeNoPadding     = 0x0000, // CBC mode, no padding
-    ECCipherOptionCBCModePKCS7Padding  = 0x0001, // CBC mode, PKCS7 padding
-    ECCipherOptionECBModeNoPadding     = 0x0002, // ECB mode, no padding
-    ECCipherOptionECBModePKCS7Padding  = 0x0003,  // ECB mode, PKCS7 padding
-    
-    ECCipherOptionDefault  = ECCipherOptionCBCModeNoPadding  // Default option
+typedef NS_ENUM(NSUInteger, ECCipherMode) {
+    ECCipherModeECB = 1,
+    ECCipherModeCBC,
+    ECCipherModeCFB,
+    ECCipherModeCTR,
+    ECCipherModeOFB,
+    ECCipherModeXTS,
+    ECCipherModeRC4,
+    ECCipherModeCFB8
 };
 
-typedef NS_ENUM(NSUInteger, ECCipherKeySize) {
-    ECCipherKeySizeAES128          = 16,
-    ECCipherKeySizeAES192          = 24,
-    ECCipherKeySizeAES256          = 32,
-    ECCipherKeySizeDES             = 8,
-    ECCipherKeySize3DES            = 24,
-    ECCipherKeySizeMinCAST         = 5,
-    ECCipherKeySizeMaxCAST         = 16,
-    // ECCipherKeySizeMinRC4       = 1,
-    // ECCipherKeySizeMaxRC4       = 512,
-    ECCipherKeySizeMinRC2          = 1,
-    ECCipherKeySizeMaxRC2          = 128,
-    ECCipherKeySizeMinBlowfish     = 8,
-    ECCipherKeySizeMaxBlowfish     = 56,
-};
-
-typedef NS_ENUM(NSUInteger, ECCipherBlockSize) {
-    /* AES */
-    ECCipherBlockSizeAES128        = 16,
-    /* DES */
-    ECCipherBlockSizeDES           = 8,
-    /* 3DES */
-    ECCipherBlockSize3DES          = 8,
-    /* CAST */
-    ECCipherBlockSizeCAST          = 8,
-    ECCipherBlockSizeRC2           = 8,
-    ECCipherBlockSizeBlowfish      = 8,
+typedef NS_ENUM(NSUInteger, ECCipherPadding) {
+    ECCipherPaddingNone			= 0,
+    ECCipherPaddingPKCS7		= 1,
 };
 
 @protocol ECCipherVariableKeySizeAlgorithm <NSObject>
@@ -81,8 +58,9 @@ typedef NS_ENUM(NSUInteger, ECCipherBlockSize) {
 @interface ECCipher : NSObject
 
 @property (nonatomic, readonly) ECCipherAlgorithm algorithm;
-@property (nonatomic, readonly) ECCipherBlockSize blockSize; // Byte
-@property (nonatomic, readonly) ECCipherOption option;
+@property (nonatomic, readonly) ECCipherMode mode;
+@property (nonatomic, readonly) ECCipherPadding padding;
+@property (nonatomic, readonly) NSInteger blockSize; // Byte
 @property (nonatomic, readonly) NSInteger keySize; // Byte
 @property (nonatomic, readonly, nonnull) NSData *key;
 @property (nonatomic, readonly, nullable) NSData *iv; // Initilization Vector ([iv length] == [blockSize length])
@@ -90,13 +68,13 @@ typedef NS_ENUM(NSUInteger, ECCipherBlockSize) {
 // Se iv==nil verrà usato un array di bytes nulli
 - (nonnull instancetype)initWithDataKey:(nonnull NSData *)key; // option=CBCModeNoPadding, iv=nil
 - (nonnull instancetype)initWithDataKey:(nonnull NSData *)key iv:(nullable NSData *)iv; // option=CBCModeNoPadding
-- (nonnull instancetype)initWithDataKey:(nonnull NSData *)key option:(ECCipherOption)opt; // iv=nil
-- (nonnull instancetype)initWithDataKey:(nonnull NSData *)key option:(ECCipherOption)opt iv:(nullable NSData *)iv;
+- (nonnull instancetype)initWithDataKey:(nonnull NSData *)key mode:(ECCipherMode)mode; // iv=nil
+- (nonnull instancetype)initWithDataKey:(nonnull NSData *)key mode:(ECCipherMode)mode padding:(ECCipherPadding)padding iv:(nullable NSData *)iv;
 
-- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key; // option=CBCModeNoPadding, iv=nil
-- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key iv:(nullable NSData *)iv; // option=CBCModeNoPadding
-- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key option:(ECCipherOption)opt; // iv=nil
-- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key option:(ECCipherOption)opt iv:(nullable NSData *)iv;
+- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key; // mode=cbc, padding=none, iv=nil
+- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key iv:(nullable NSData *)iv; // mode=cbc, padding=none
+- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key mode:(ECCipherMode)mode; // padding=none, iv=nil
+- (nonnull instancetype)initWithStringKey:(nonnull NSString *)key mode:(ECCipherMode)mode padding:(ECCipherPadding)padding iv:(nullable NSData *)iv;
 
 
 - (nullable ECCipherEncryptedData *)encryptData:(nonnull NSData *)data error:(NSError * _Nullable * _Nullable)error;
@@ -105,6 +83,10 @@ typedef NS_ENUM(NSUInteger, ECCipherBlockSize) {
 
 - (nullable ECCipherPlainData *)decryptData:(nonnull NSData *)data error:(NSError * _Nullable * _Nullable)error;
 - (nullable ECCipherPlainData *)decrypt:(nonnull ECCipherEncryptedData *)data error:(NSError * _Nullable * _Nullable)error;
+
+
++ (ECCipherAlgorithm)algorithm;
++ (NSInteger)blockSize;
 
 + (BOOL)validateDataKey:(nonnull NSData *)key;
 + (BOOL)validateStringKey:(nonnull NSString *)key;
@@ -125,7 +107,7 @@ typedef NS_ENUM(NSUInteger, ECCipherBlockSize) {
 @end
 
 /*
-@interface ECCipherRC4 : ECCipher
+@interface ECCipherRC4 : ECCipher <ECCipherVariableKeySizeAlgorithm>
 @end
 */
 
