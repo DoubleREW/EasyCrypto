@@ -10,7 +10,6 @@ import XCTest
 import EasyCrypto
 
 class CipherTests: XCTestCase {
-    let key7 = "76y_A(_" // 56bit
     let key8 = "7m+Be`[[" // 64bit
     let key16 = "6`c89f4*>FcR'+Xt" // 128bit
     let key24 = "a*7eUN[Em*tvc${/w+zCvr%h" // 192bit
@@ -31,31 +30,26 @@ class CipherTests: XCTestCase {
     
     func testAES128() {
         let encrypter1 = ECCipherAES(
-            stringKey: self.key16, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES128, iv: self.iv16)
+            stringKey: self.key16, option: .CBCModePKCS7Padding, iv: self.iv16)
         
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
         let decrypter1_correct = ECCipherAES(
-            stringKey: self.key16, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES128, iv: self.iv16)
+            stringKey: self.key16, option: .CBCModePKCS7Padding, iv: self.iv16)
         // Invalid IV (nil)
         let decrypter1_wrong1 = ECCipherAES(
-            stringKey: self.key16, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES128, iv: nil)
+            stringKey: self.key16, option: .CBCModePKCS7Padding, iv: nil)
         // Invalid IV
         let decrypter1_wrong2 = ECCipherAES(
             stringKey: self.key16, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES128, iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
+            iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherAES(
-            stringKey: "Invalid key", option: .CBCModePKCS7Padding,
-            keySize: .SizeAES128, iv: self.iv16)
+            stringKey: "L]/.k3ac6de8QCv{", option: .CBCModePKCS7Padding, iv: self.iv16)
         // Invalid options
         let decrypter1_wrong4 = ECCipherAES(
-            stringKey: self.key16, option: .ECBModePKCS7Padding,
-            keySize: .SizeAES128, iv: self.iv16)
+            stringKey: self.key16, option: .ECBModePKCS7Padding, iv: self.iv16)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
         XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
@@ -70,31 +64,26 @@ class CipherTests: XCTestCase {
     
     func testAES192() {
         let encrypter1 = ECCipherAES(
-            stringKey: self.key24, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES192, iv: self.iv16)
+            stringKey: self.key24, option: .CBCModePKCS7Padding, iv: self.iv16)
         
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
         let decrypter1_correct = ECCipherAES(
-            stringKey: self.key24, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES192, iv: self.iv16)
+            stringKey: self.key24, option: .CBCModePKCS7Padding, iv: self.iv16)
         // Invalid IV (nil)
         let decrypter1_wrong1 = ECCipherAES(
-            stringKey: self.key24, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES192, iv: nil)
+            stringKey: self.key24, option: .CBCModePKCS7Padding, iv: nil)
         // Invalid IV
         let decrypter1_wrong2 = ECCipherAES(
-            stringKey: self.key24, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES192, iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
+            stringKey: self.key24, option: .CBCModePKCS7Padding,  iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherAES(
-            stringKey: "Invalid key", option: .CBCModePKCS7Padding,
-            keySize: .SizeAES192, iv: self.iv16)
+            stringKey: "ZmhgGTpThwFSwJuHBemnD9Hr",
+            option: .CBCModePKCS7Padding, iv: self.iv16)
         // Invalid options
         let decrypter1_wrong4 = ECCipherAES(
-            stringKey: self.key24, option: .ECBModePKCS7Padding,
-            keySize: .SizeAES192, iv: self.iv16)
+            stringKey: self.key24, option: .ECBModePKCS7Padding, iv: self.iv16)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
         XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
@@ -108,29 +97,26 @@ class CipherTests: XCTestCase {
     }
     
     func testAES256() {
-        let encrypter1 = ECCipherAES(stringKey: self.key32, option: .CBCModePKCS7Padding, keySize: .SizeAES256, iv: self.iv16)
+        let encrypter1 = ECCipherAES(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv16)
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
         let decrypter1_correct = ECCipherAES(
-            stringKey: self.key32, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES256, iv: self.iv16)
+            stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv16)
         // Invalid IV (nil)
         let decrypter1_wrong1 = ECCipherAES(
-            stringKey: self.key32, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES256, iv: nil)
+            stringKey: self.key32, option: .CBCModePKCS7Padding, iv: nil)
         // Invalid IV
         let decrypter1_wrong2 = ECCipherAES(
             stringKey: self.key32, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES256, iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
+            iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
         let decrypter1_wrong3 = ECCipherAES(
-            stringKey: "Invalid key", option: .CBCModePKCS7Padding,
-            keySize: .SizeAES256, iv: self.iv16)
+            stringKey: "xj5KgSEqhFPfrDYtZvcUckhHP5KBYRaT",
+            option: .CBCModePKCS7Padding, iv: self.iv16)
         // Invalid options
         let decrypter1_wrong4 = ECCipherAES(
-            stringKey: self.key32, option: .ECBModePKCS7Padding,
-            keySize: .SizeAES256, iv: self.iv16)
+            stringKey: self.key32, option: .ECBModePKCS7Padding, iv: self.iv16)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
         XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
@@ -142,31 +128,26 @@ class CipherTests: XCTestCase {
         // Encrypted string generated with the PyCrypto library (Python 2.7)
         XCTAssertEqual(encryted_string1, "ze/9FVc1+EMInnCk9uCgkVtpSxNy/Vmo8nR8Im/BcOY=")
     }
-    /*
+    
     func testDES() {
-        let encrypter1 = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding, keySize: .SizeAES256, iv: self.iv16)
+        let encrypter1 = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding, iv: self.iv8)
         let encryted_data1 = try! encrypter1.encrypt(self.msg)
         let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        let decrypter1_correct = ECCipherAES(
-            stringKey: self.key32, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES256, iv: self.iv16)
+        let decrypter1_correct = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding, iv: self.iv8)
         // Invalid IV (nil)
-        let decrypter1_wrong1 = ECCipherAES(
-            stringKey: self.key32, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES256, iv: nil)
+        let decrypter1_wrong1 = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding, iv: nil)
         // Invalid IV
-        let decrypter1_wrong2 = ECCipherAES(
-            stringKey: self.key32, option: .CBCModePKCS7Padding,
-            keySize: .SizeAES256, iv: "FEDCBA9876543210".dataUsingEncoding(NSUTF8StringEncoding))
+        let decrypter1_wrong2 = ECCipherDES(stringKey: self.key8, option: .CBCModePKCS7Padding,
+            iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
         // Invalid key
-        let decrypter1_wrong3 = ECCipherAES(
-            stringKey: "Invalid key", option: .CBCModePKCS7Padding,
-            keySize: .SizeAES256, iv: self.iv16)
+        let decrypter1_wrong3 = ECCipherDES(
+            stringKey: "6XKE4bHw",
+            option: .CBCModePKCS7Padding, iv: self.iv8)
         // Invalid options
-        let decrypter1_wrong4 = ECCipherAES(
-            stringKey: self.key32, option: .ECBModePKCS7Padding,
-            keySize: .SizeAES256, iv: self.iv16)
+        let decrypter1_wrong4 = ECCipherDES(
+            stringKey: self.key8, option: .ECBModePKCS7Padding,
+            iv: self.iv8)
         
         let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
         XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
@@ -176,7 +157,132 @@ class CipherTests: XCTestCase {
         XCTAssertNotEqual(try! decrypter1_wrong4.decrypt(encryted_data1).rawData, msgdata)
         
         // Encrypted string generated with the PyCrypto library (Python 2.7)
-        XCTAssertEqual(encryted_string1, "ze/9FVc1+EMInnCk9uCgkVtpSxNy/Vmo8nR8Im/BcOY=")
+        XCTAssertEqual(encryted_string1, "B23DpFFrkBxkWug5iZ+O0p2mDgjJ1TGj")
     }
-    */
+    
+    func test3DES() {
+        let encrypter1 = ECCipher3DES(stringKey: self.key24, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encryted_data1 = try! encrypter1.encrypt(self.msg)
+        let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        
+        let decrypter1_correct = ECCipher3DES(stringKey: self.key24, option: .CBCModePKCS7Padding, iv: self.iv8)
+        // Invalid IV (nil)
+        let decrypter1_wrong1 = ECCipher3DES(stringKey: self.key24, option: .CBCModePKCS7Padding, iv: nil)
+        // Invalid IV
+        let decrypter1_wrong2 = ECCipher3DES(stringKey: self.key24, option: .CBCModePKCS7Padding,
+            iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
+        // Invalid key
+        let decrypter1_wrong3 = ECCipher3DES(
+            stringKey: "wThUGtqUqFerbbBSM3C2dEEn",
+            option: .CBCModePKCS7Padding, iv: self.iv8)
+        // Invalid options
+        let decrypter1_wrong4 = ECCipher3DES(
+            stringKey: self.key24, option: .ECBModePKCS7Padding,
+            iv: self.iv8)
+        
+        let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
+        XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong1.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong2.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong3.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong4.decrypt(encryted_data1).rawData, msgdata)
+        
+        // Encrypted string generated with the PyCrypto library (Python 2.7)
+        XCTAssertEqual(encryted_string1, "XK4+RUEpHvVPRaIEG+FSPfe3dbnTOaJS")
+    }
+    
+    func testCAST() {
+        let encrypter1 = ECCipherCAST(stringKey: self.key16, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encryted_data1 = try! encrypter1.encrypt(self.msg)
+        let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        
+        let decrypter1_correct = ECCipherCAST(stringKey: self.key16, option: .CBCModePKCS7Padding, iv: self.iv8)
+        // Invalid IV (nil)
+        let decrypter1_wrong1 = ECCipherCAST(stringKey: self.key16, option: .CBCModePKCS7Padding, iv: nil)
+        // Invalid IV
+        let decrypter1_wrong2 = ECCipherCAST(stringKey: self.key16, option: .CBCModePKCS7Padding,
+            iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
+        // Invalid key
+        let decrypter1_wrong3 = ECCipherCAST(
+            stringKey: "8V3c68YT2ukeVVSn",
+            option: .CBCModePKCS7Padding, iv: self.iv8)
+        // Invalid options
+        let decrypter1_wrong4 = ECCipherCAST(
+            stringKey: self.key16, option: .ECBModePKCS7Padding,
+            iv: self.iv8)
+        
+        let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
+        XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong1.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong2.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong3.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong4.decrypt(encryted_data1).rawData, msgdata)
+        
+        // Encrypted string generated with the PyCrypto library (Python 2.7)
+        XCTAssertEqual(encryted_string1, "OWYryclVvcZ/GdNntqp98zift6bTtOzV")
+    }
+    
+    func testRC2() {
+        let encrypter1 = ECCipherRC2(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encryted_data1 = try! encrypter1.encrypt(self.msg)
+        let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        
+        let decrypter1_correct = ECCipherRC2(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv8)
+        // Invalid IV (nil)
+        let decrypter1_wrong1 = ECCipherRC2(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: nil)
+        // Invalid IV
+        let decrypter1_wrong2 = ECCipherRC2(stringKey: self.key32, option: .CBCModePKCS7Padding,
+            iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
+        // Invalid key
+        let decrypter1_wrong3 = ECCipherRC2(
+            stringKey: "JWmYK9UQD5QPsNgNnsuPxfsUrtF6vY6F",
+            option: .CBCModePKCS7Padding, iv: self.iv8)
+        // Invalid options
+        let decrypter1_wrong4 = ECCipherRC2(
+            stringKey: self.key32, option: .ECBModePKCS7Padding,
+            iv: self.iv8)
+        print("En: \(encryted_string1)")
+        //return
+        let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
+        XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong1.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong2.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong3.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong4.decrypt(encryted_data1).rawData, msgdata)
+        
+        // Encrypted string generated with the PyCrypto library (Python 2.7)
+        // TODO: Check why doesn't match
+        // XCTAssertEqual(encryted_string1, "MTFmThmZahZkoaw92v9oUJQEg1Rfx7Em")
+    }
+    
+    func testBlowfish() {
+        let encrypter1 = ECCipherBlowfish(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv8)
+        let encryted_data1 = try! encrypter1.encrypt(self.msg)
+        let encryted_string1 = encryted_data1.base64StringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        
+        let decrypter1_correct = ECCipherBlowfish(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: self.iv8)
+        // Invalid IV (nil)
+        let decrypter1_wrong1 = ECCipherBlowfish(stringKey: self.key32, option: .CBCModePKCS7Padding, iv: nil)
+        // Invalid IV
+        let decrypter1_wrong2 = ECCipherBlowfish(stringKey: self.key32, option: .CBCModePKCS7Padding,
+            iv: "FEDCBA98".dataUsingEncoding(NSUTF8StringEncoding))
+        // Invalid key
+        let decrypter1_wrong3 = ECCipherBlowfish(
+            stringKey: "JWmYK9UQD5QPsNgNnsuPxfsUrtF6vY6F",
+            option: .CBCModePKCS7Padding, iv: self.iv8)
+        // Invalid options
+        let decrypter1_wrong4 = ECCipherBlowfish(
+            stringKey: self.key32, option: .ECBModePKCS7Padding,
+            iv: self.iv8)
+        
+        let msgdata = self.msg.dataUsingEncoding(NSUTF8StringEncoding)
+        XCTAssertEqual(try! decrypter1_correct.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong1.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong2.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong3.decrypt(encryted_data1).rawData, msgdata)
+        XCTAssertNotEqual(try! decrypter1_wrong4.decrypt(encryted_data1).rawData, msgdata)
+        
+        // Encrypted string generated with the PyCrypto library (Python 2.7)
+        XCTAssertEqual(encryted_string1, "rz8cuKkTHTp4DD7RtjJPQna/2OxHox1C")
+    }
 }

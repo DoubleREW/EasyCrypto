@@ -50,11 +50,11 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
 @property (nonatomic, assign) ECCipherAlgorithm algorithm;
 @property (nonatomic, assign) ECCipherBlockSize blockSize;
 @property (nonatomic, assign) ECCipherOption option;
-@property (nonatomic, assign) ECCipherKeySize keySize;
+@property (nonatomic, assign) NSInteger keySize;
 @property (nonatomic, strong) NSData *key;
 @property (nonatomic, strong) NSData *iv;
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize;
++ (BOOL)validateKeySize:(NSInteger)keySize;
 
 @end
 
@@ -73,35 +73,79 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
     return self;
 }
 
-- (instancetype)initWithDataKey:(NSData *)key option:(ECCipherOption)opt keySize:(ECCipherKeySize)keySize iv:(NSData *)iv;
+- (instancetype)initWithDataKey:(NSData *)key option:(ECCipherOption)opt iv:(NSData *)iv;
 {
     self = [self init];
     if (self) {
         if (iv != nil)
             NSAssert2([self blockSize] == [iv length], @"The inizialization vector's length must be equal to the algorithm's block size (%ld != %ld).", [iv length], [self blockSize]);
         
-        NSAssert1([self checkKeySize:keySize], @"The chosen key size (%ld) is not valid for this algorithm.", keySize);
+        NSAssert1([[self class] validateDataKey:key], @"The size of the key (%ld) is not valid for this algorithm.", [key length]);
         
         _key = key;
         _option = opt;
         _iv = iv;
-        _keySize = keySize;
+        _keySize = [key length];
     }
     
     return self;
 }
 
-- (instancetype)initWithStringKey:(NSString *)key option:(ECCipherOption)opt keySize:(ECCipherKeySize)keySize iv:(NSData *)iv;
+- (instancetype)initWithDataKey:(NSData *)key option:(ECCipherOption)opt
+{
+    return [self initWithDataKey:key option:opt iv:nil];
+}
+
+- (instancetype)initWithDataKey:(NSData *)key iv:(NSData *)iv
+{
+    return [self initWithDataKey:key option:ECCipherOptionDefault iv:iv];
+}
+
+- (instancetype)initWithDataKey:(NSData *)key
+{
+    return [self initWithDataKey:key iv:nil];
+}
+
+- (instancetype)initWithStringKey:(NSString *)key option:(ECCipherOption)opt iv:(NSData *)iv;
 {
     return [self initWithDataKey:[key dataUsingEncoding:NSUTF8StringEncoding]
                           option:opt
-                         keySize:keySize
                               iv:iv];
 }
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize
+- (instancetype)initWithStringKey:(NSString *)key iv:(NSData *)iv;
+{
+    return [self initWithStringKey:key option:ECCipherOptionDefault iv:iv];
+}
+
+- (instancetype)initWithStringKey:(NSString *)key option:(ECCipherOption)opt;
+{
+    return [self initWithStringKey:key option:opt iv:nil];
+}
+
+- (instancetype)initWithStringKey:(NSString *)key;
+{
+    return [self initWithStringKey:key iv:nil];
+}
+
++ (BOOL)validateKeySize:(NSInteger)keySize
 {
     return NO;
+}
+
++ (BOOL)validateDataKey:(NSData *)key
+{
+    return [self validateKeySize:[key length]];
+}
+
++ (BOOL)validateStringKey:(NSString *)key
+{
+    return [self validateDataKey:[key dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
++ (BOOL)validateKey:(NSString *)key
+{
+    return [self validateStringKey:key];
 }
 
 - (ECCipherEncryptedData *)encryptData:(NSData *)data error:(NSError **)error;
@@ -218,9 +262,14 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
     return self;
 }
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize
++ (BOOL)validateKeySize:(NSInteger)keySize
 {
     return keySize == ECCipherKeySizeAES128 || keySize == ECCipherKeySizeAES192 || keySize == ECCipherKeySizeAES256;
+}
+
++ (nonnull NSArray<NSNumber *> *)keySizes
+{
+    return @[@(ECCipherKeySizeAES128), @(ECCipherKeySizeAES192), @(ECCipherKeySizeAES256)];
 }
 
 @end
@@ -238,9 +287,14 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
     return self;
 }
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize
++ (BOOL)validateKeySize:(NSInteger)keySize
 {
     return keySize == ECCipherKeySizeDES;
+}
+
++ (nonnull NSArray<NSNumber *> *)keySizes
+{
+    return @[@(ECCipherKeySizeDES)];
 }
 
 @end
@@ -258,9 +312,14 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
     return self;
 }
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize
++ (BOOL)validateKeySize:(NSInteger)keySize
 {
     return keySize == ECCipherKeySize3DES;
+}
+
++ (nonnull NSArray<NSNumber *> *)keySizes
+{
+    return @[@(ECCipherKeySize3DES)];
 }
 
 @end
@@ -278,9 +337,19 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
     return self;
 }
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize
++ (BOOL)validateKeySize:(NSInteger)keySize
 {
-    return keySize == ECCipherKeySizeMinCAST || keySize == ECCipherKeySizeMaxCAST;
+    return keySize >= ECCipherKeySizeMinCAST && keySize <= ECCipherKeySizeMaxCAST;
+}
+
++ (NSInteger)keySizeMinValue
+{
+    return ECCipherKeySizeMinCAST;
+}
+
++ (NSInteger)keySizeMaxValue
+{
+    return ECCipherKeySizeMaxCAST;
 }
 
 @end
@@ -299,7 +368,7 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
     return self;
 }
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize
++ (BOOL)validateKeySize:(NSInteger)keySize
 {
     return keySize == ECCipherKeySizeMinRC4 || keySize == ECCipherKeySizeMaxRC4;
 }
@@ -320,9 +389,19 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
     return self;
 }
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize
++ (BOOL)validateKeySize:(NSInteger)keySize
 {
-    return keySize == ECCipherKeySizeMinRC2 || keySize == ECCipherKeySizeMaxRC2;
+    return keySize >= ECCipherKeySizeMinRC2 && keySize <= ECCipherKeySizeMaxRC2;
+}
+
++ (NSInteger)keySizeMinValue
+{
+    return ECCipherKeySizeMinRC2;
+}
+
++ (NSInteger)keySizeMaxValue
+{
+    return ECCipherKeySizeMaxRC2;
 }
 
 @end
@@ -340,9 +419,19 @@ static NSString * GetCCCryptorStatusString(CCCryptorStatus status)
     return self;
 }
 
-- (BOOL)checkKeySize:(ECCipherKeySize)keySize
++ (BOOL)validateKeySize:(NSInteger)keySize
 {
-    return keySize == ECCipherKeySizeMinBlowfish || keySize == ECCipherKeySizeMaxBlowfish;
+    return keySize >= ECCipherKeySizeMinBlowfish && keySize <= ECCipherKeySizeMaxBlowfish;
+}
+
++ (NSInteger)keySizeMinValue
+{
+    return ECCipherKeySizeMinBlowfish;
+}
+
++ (NSInteger)keySizeMaxValue
+{
+    return ECCipherKeySizeMaxBlowfish;
 }
 
 @end
